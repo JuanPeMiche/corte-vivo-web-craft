@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 interface NavigationProps {
   language: string;
-  onLanguageChange: (lang: string) => void;
+  onLanguageChange?: (lang: string) => void;
 }
 
 const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) => {
@@ -66,7 +66,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
               <Globe className="w-4 h-4 text-muted-foreground" />
               <select
                 value={language}
-                onChange={(e) => onLanguageChange(e.target.value)}
+                onChange={(e) => onLanguageChange?.(e.target.value)}
                 className="bg-transparent text-sm font-medium focus:outline-none cursor-pointer"
               >
                 <option value="es">ES</option>
