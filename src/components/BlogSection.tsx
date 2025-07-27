@@ -100,7 +100,11 @@ const BlogSection: React.FC<BlogSectionProps> = ({ language }) => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4">{post.excerpt}</p>
-                <Button variant="outline" className="btn-outline-copper">
+                <Button 
+                  variant="outline" 
+                  className="btn-outline-copper"
+                  onClick={() => window.location.href = `/blog/${index + 1}`}
+                >
                   {text.readMore} <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </CardContent>
@@ -109,7 +113,13 @@ const BlogSection: React.FC<BlogSectionProps> = ({ language }) => {
         </div>
 
         <div className="text-center">
-          <Button size="lg" className="btn-copper">{text.viewAll}</Button>
+          <Button 
+            size="lg" 
+            className="btn-copper"
+            onClick={() => window.location.href = '/blog'}
+          >
+            {text.viewAll}
+          </Button>
         </div>
       </div>
     </section>

@@ -45,11 +45,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
       
-      {/* Background Image */}
+      {/* Background Image - Haircut focused */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1622286346003-4526d9101127?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+          backgroundImage: `url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
         }}
       >
         <div className="absolute inset-0 bg-primary/70"></div>

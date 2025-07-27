@@ -103,6 +103,7 @@ const StylesSection: React.FC<StylesSectionProps> = ({ language }) => {
                     variant="outline"
                     size="sm"
                     className="border-white text-white hover:bg-white hover:text-primary"
+                    onClick={() => window.location.href = `/estilos/${style.id}`}
                   >
                     <Eye className="w-4 h-4 mr-2" />
                     {text.viewStyle}
@@ -118,7 +119,11 @@ const StylesSection: React.FC<StylesSectionProps> = ({ language }) => {
         </div>
 
         <div className="text-center">
-          <Button size="lg" className="btn-copper">
+          <Button 
+            size="lg" 
+            className="btn-copper"
+            onClick={() => window.location.href = '/estilos'}
+          >
             {text.viewMore}
           </Button>
         </div>

@@ -117,7 +117,11 @@ const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
         </div>
 
         <div className="text-center">
-          <Button size="lg" className="btn-copper">
+          <Button 
+            size="lg" 
+            className="btn-copper"
+            onClick={() => window.location.href = '/equipo'}
+          >
             {text.meetTeam}
           </Button>
         </div>
