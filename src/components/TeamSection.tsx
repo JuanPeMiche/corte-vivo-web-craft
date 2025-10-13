@@ -2,6 +2,10 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import barber1 from '@/assets/barber-1.jpg';
+import barber2 from '@/assets/barber-2.jpg';
+import barber3 from '@/assets/barber-3.jpg';
+import barber4 from '@/assets/barber-4.jpg';
 
 interface TeamSectionProps {
   language: string;
@@ -18,28 +22,28 @@ const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
           id: "carlos",
           name: "Carlos Mendoza",
           specialty: "Especialista en Cortes Clásicos",
-          image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: barber1,
           experience: "8 años"
         },
         {
           id: "miguel",
           name: "Miguel Rodriguez",
           specialty: "Master en Fade & Degradé",
-          image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: barber2,
           experience: "6 años"
         },
         {
           id: "antonio",
           name: "Antonio Silva",
           specialty: "Afeitado Tradicional",
-          image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: barber3,
           experience: "12 años"
         },
         {
           id: "diego",
           name: "Diego Martinez",
           specialty: "Barber Artist",
-          image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: barber4,
           experience: "5 años"
         }
       ]
@@ -53,28 +57,28 @@ const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
           id: "carlos",
           name: "Carlos Mendoza",
           specialty: "Classic Cuts Specialist",
-          image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: barber1,
           experience: "8 years"
         },
         {
           id: "miguel",
           name: "Miguel Rodriguez",
           specialty: "Fade & Gradient Master",
-          image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: barber2,
           experience: "6 years"
         },
         {
           id: "antonio",
           name: "Antonio Silva",
           specialty: "Traditional Shaving",
-          image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: barber3,
           experience: "12 years"
         },
         {
           id: "diego",
           name: "Diego Martinez",
           specialty: "Barber Artist",
-          image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+          image: barber4,
           experience: "5 years"
         }
       ]

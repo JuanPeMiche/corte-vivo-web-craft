@@ -13,7 +13,7 @@ const Servicios: React.FC = () => {
   const content = {
     es: {
       title: "Todos Nuestros Servicios",
-      subtitle: "Descubre la gama completa de servicios premium de Barbería CorteVivo",
+      subtitle: "Descubre la gama completa de servicios premium de AS Barbería",
       backHome: "Volver al inicio",
       filters: {
         all: "Todos",
@@ -73,7 +73,7 @@ const Servicios: React.FC = () => {
     },
     en: {
       title: "All Our Services",
-      subtitle: "Discover the complete range of premium services at Barbería CorteVivo",
+      subtitle: "Discover the complete range of premium services at AS Barbería",
       backHome: "Back to home",
       filters: {
         all: "All",

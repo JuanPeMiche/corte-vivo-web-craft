@@ -23,7 +23,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
       subscribe: "Suscribirse",
       address: "Av. 18 de Julio 1234, Montevideo",
       phone: "+598 2XXX XXXX",
-      emailContact: "info@cortevivo.uy",
+      emailContact: "info@asbarberia.uy",
       hours: "Lun-Vie: 9:00-19:00, Sáb: 9:00-17:00"
     },
     en: {
@@ -37,7 +37,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
       subscribe: "Subscribe",
       address: "Av. 18 de Julio 1234, Montevideo",
       phone: "+598 2XXX XXXX",
-      emailContact: "info@cortevivo.uy",
+      emailContact: "info@asbarberia.uy",
       hours: "Mon-Fri: 9:00-19:00, Sat: 9:00-17:00"
     }
   };

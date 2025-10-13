@@ -18,7 +18,7 @@ const EquipoPage = () => {
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
       rating: 4.9,
       certifications: ["Master Barber Certified", "Straight Razor Specialist", "Hair Color Expert"],
-      bio: "Carlos fundó CorteVivo con la visión de crear un espacio donde el arte tradicional de la barbería se encontrara con las técnicas modernas. Su experiencia de 12 años y su pasión por la perfección lo han convertido en uno de los barberos más reconocidos de la ciudad.",
+      bio: "Carlos fundó AS Barbería con la visión de crear un espacio donde el arte tradicional de la barbería se encontrara con las técnicas modernas. Su experiencia de 12 años y su pasión por la perfección lo han convertido en uno de los barberos más reconocidos de la ciudad.",
       testimonials: [
         {
           client: "Ricardo M.",
@@ -114,7 +114,7 @@ const EquipoPage = () => {
           </Button>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Nuestro Equipo</h1>
           <p className="text-xl text-gray-300 max-w-2xl">
-            Conoce a los maestros barberos que hacen posible la experiencia CorteVivo
+            Conoce a los maestros barberos que hacen posible la experiencia AS Barbería
           </p>
         </div>
       </div>
@@ -229,7 +229,7 @@ const EquipoPage = () => {
           {/* Call to Action */}
           <Card className="mt-16 bg-copper/5 border-copper/20">
             <CardContent className="p-8 text-center">
-              <h3 className="text-2xl font-bold mb-4">¿Listo para la experiencia CorteVivo?</h3>
+              <h3 className="text-2xl font-bold mb-4">¿Listo para la experiencia AS Barbería?</h3>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
                 Nuestro equipo de expertos está preparado para brindarte el mejor servicio de barbería. 
                 Reserva tu cita y descubre por qué somos los mejores.

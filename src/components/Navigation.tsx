@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import asLogo from '@/assets/as-logo.png';
 
 interface NavigationProps {
   language: string;
@@ -43,8 +44,11 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
       <div className="container-responsive">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <div className="text-2xl font-bold text-primary">
-            <span className="text-copper">Barbería</span> CorteVivo
+          <div className="flex items-center gap-2">
+            <img src={asLogo} alt="AS Barbería" className="w-8 h-8" />
+            <div className="text-2xl font-bold text-primary">
+              <span className="text-copper">AS</span> Barbería
+            </div>
           </div>
 
           {/* Desktop Navigation */}

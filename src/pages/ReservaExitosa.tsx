@@ -32,9 +32,9 @@ const ReservaExitosa: React.FC = () => {
         total: "$1.800",
         address: "Av. 18 de Julio 1234, Montevideo",
         phone: "+598 2xxx xxxx",
-        email: "info@cortevivo.uy"
+        email: "info@asbarberia.uy"
       },
-      thanks: "Gracias por elegir Barbería CorteVivo. Te esperamos para brindarte la mejor experiencia de grooming."
+      thanks: "Gracias por elegir AS Barbería. Te esperamos para brindarte la mejor experiencia de grooming."
     },
     en: {
       title: "Booking Confirmed!",
@@ -60,9 +60,9 @@ const ReservaExitosa: React.FC = () => {
         total: "$1.800",
         address: "Av. 18 de Julio 1234, Montevideo",
         phone: "+598 2xxx xxxx",
-        email: "info@cortevivo.uy"
+        email: "info@asbarberia.uy"
       },
-      thanks: "Thank you for choosing Barbería CorteVivo. We look forward to providing you with the best grooming experience."
+      thanks: "Thank you for choosing AS Barbería. We look forward to providing you with the best grooming experience."
     }
   };
 
@@ -70,10 +70,10 @@ const ReservaExitosa: React.FC = () => {
 
   const generateCalendarLink = () => {
     const event = {
-      title: `Barbería CorteVivo - ${text.sampleData.service}`,
+      title: `AS Barbería - ${text.sampleData.service}`,
       start: '20250215T143000',
       end: '20250215T151500',
-      description: `Cita en Barbería CorteVivo. Servicio: ${text.sampleData.service}. Barbero: ${text.sampleData.barber}`,
+      description: `Cita en AS Barbería. Servicio: ${text.sampleData.service}. Barbero: ${text.sampleData.barber}`,
       location: text.sampleData.address
     };
     

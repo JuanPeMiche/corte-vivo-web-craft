@@ -9,13 +9,13 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
   const content = {
     es: {
-      title: "Bienvenido a Barbería CorteVivo",
+      title: "Bienvenido a AS Barbería",
       subtitle: "Estilo auténtico, acabado perfecto",
       btnCatalog: "Ver catálogo de servicios",
       btnBook: "Reserva tu turno"
     },
     en: {
-      title: "Welcome to Barbería CorteVivo",
+      title: "Welcome to AS Barbería",
       subtitle: "Authentic style, perfect finish",
       btnCatalog: "View services catalog",
       btnBook: "Book your appointment"
@@ -27,8 +27,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
   const handleDownloadPDF = () => {
     // Create a link to download the PDF
     const link = document.createElement('a');
-    link.href = '/assets/servicios_cortevivo.pdf';
-    link.download = 'servicios_cortevivo.pdf';
+    link.href = '/assets/servicios_asbarberia.pdf';
+    link.download = 'servicios_asbarberia.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -59,7 +59,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
       <div className="relative z-10 text-center text-white container-responsive section-padding">
         <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
           {text.title.split(' ').map((word, index) => (
-            <span key={index} className={word === 'CorteVivo' ? 'text-copper' : ''}>
+            <span key={index} className={word === 'Barbería' ? 'text-copper' : ''}>
               {word}{' '}
             </span>
           ))}

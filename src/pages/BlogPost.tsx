@@ -72,7 +72,7 @@ const BlogPost = () => {
       },
       {
         type: "paragraph",
-        text: "En Barbería CorteVivo, nuestro equipo de expertos está preparado para ayudarte a encontrar el corte perfecto que se adapte a tu personalidad y estilo de vida. ¡Reserva tu cita y descubre tu nuevo look!"
+        text: "En AS Barbería, nuestro equipo de expertos está preparado para ayudarte a encontrar el corte perfecto que se adapte a tu personalidad y estilo de vida. ¡Reserva tu cita y descubre tu nuevo look!"
       }
     ]
   };

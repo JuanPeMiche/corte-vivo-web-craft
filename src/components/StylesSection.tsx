@@ -1,7 +1,11 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ChevronLeft, ChevronRight, Eye } from 'lucide-react';
+import { Eye } from 'lucide-react';
+import estilo1 from '@/assets/estilo-1.png';
+import estilo2 from '@/assets/estilo-2.png';
+import estilo3 from '@/assets/estilo-3.png';
+import estilo4 from '@/assets/estilo-4.png';
 
 interface StylesSectionProps {
   language: string;
@@ -18,25 +22,25 @@ const StylesSection: React.FC<StylesSectionProps> = ({ language }) => {
         {
           id: "fade-moderno",
           name: "Fade Moderno",
-          image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          image: estilo1,
           description: "Degradado perfecto con líneas definidas"
         },
         {
           id: "clasico-elegante",
           name: "Clásico Elegante",
-          image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          image: estilo2,
           description: "Estilo atemporal para el hombre sofisticado"
         },
         {
           id: "barba-full",
           name: "Barba Full",
-          image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          image: estilo3,
           description: "Barba completa con perfilado profesional"
         },
         {
           id: "undercut-textured",
           name: "Undercut Texturizado",
-          image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          image: estilo4,
           description: "Corte urbano con textura y movimiento"
         }
       ]
@@ -50,25 +54,25 @@ const StylesSection: React.FC<StylesSectionProps> = ({ language }) => {
         {
           id: "modern-fade",
           name: "Modern Fade",
-          image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          image: estilo1,
           description: "Perfect gradient with defined lines"
         },
         {
           id: "elegant-classic",
           name: "Elegant Classic",
-          image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          image: estilo2,
           description: "Timeless style for the sophisticated man"
         },
         {
           id: "full-beard",
           name: "Full Beard",
-          image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          image: estilo3,
           description: "Complete beard with professional styling"
         },
         {
           id: "textured-undercut",
           name: "Textured Undercut",
-          image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          image: estilo4,
           description: "Urban cut with texture and movement"
         }
       ]
