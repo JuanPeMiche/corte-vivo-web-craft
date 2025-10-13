@@ -37,7 +37,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
           title: "Corte",
           description: "Corte profesional adaptado a tu estilo personal y forma del rostro",
           fullDescription: "Corte profesional que se adapta perfectamente a tu estilo personal y forma del rostro. Utilizamos técnicas modernas para lograr un acabado impecable.",
-          price: "$1.200",
+          price: "$500",
           duration: "30 min",
           images: ["https://images.unsplash.com/photo-1622286346003-4526d9101127?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
         },
@@ -47,7 +47,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
           title: "Corte + Barba",
           description: "Servicio completo de corte y arreglo de barba con acabado perfecto",
           fullDescription: "Servicio premium que combina corte profesional con cuidado completo de barba. Incluye perfilado, recorte y acabado con productos especializados.",
-          price: "$1.800",
+          price: "$800",
           duration: "45 min",
           images: ["https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
         },
@@ -57,7 +57,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
           title: "Color (Tinte)",
           description: "Coloración profesional para cubrir canas o cambiar tu look completamente",
           fullDescription: "Servicio completo de coloración con productos premium. Incluye análisis del cabello, aplicación profesional y tratamiento nutritivo post-color.",
-          price: "$2.400",
+          price: "$1.750",
           duration: "60 min",
           images: ["https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
         }
@@ -77,7 +77,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
           title: "Haircut",
           description: "Professional cut adapted to your personal style and face shape",
           fullDescription: "Professional haircut that perfectly adapts to your personal style and face shape. We use modern techniques to achieve an impeccable finish.",
-          price: "$1.200",
+          price: "$500",
           duration: "30 min",
           images: ["https://images.unsplash.com/photo-1622286346003-4526d9101127?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
         },
@@ -87,7 +87,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
           title: "Haircut + Beard",
           description: "Complete service of haircut and beard grooming with perfect finish",
           fullDescription: "Premium service that combines professional haircut with complete beard care. Includes trimming, cutting and finishing with specialized products.",
-          price: "$1.800",
+          price: "$800",
           duration: "45 min",
           images: ["https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
         },
@@ -97,7 +97,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
           title: "Color (Dye)",
           description: "Professional coloring to cover gray hair or completely change your look",
           fullDescription: "Complete coloring service with premium products. Includes hair analysis, professional application and post-color nourishing treatment.",
-          price: "$2.400",
+          price: "$1.750",
           duration: "60 min",
           images: ["https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
         }

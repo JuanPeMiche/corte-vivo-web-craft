@@ -34,9 +34,9 @@ const BookingSection: React.FC<BookingSectionProps> = ({ language }) => {
       tip: "Propina",
       noTip: "Sin propina",
       services: [
-        { name: "Corte", price: "$1.200" },
-        { name: "Corte + Barba", price: "$1.800" },
-        { name: "Color (Tinte)", price: "$2.400" }
+        { name: "Corte", price: "$500" },
+        { name: "Corte + Barba", price: "$800" },
+        { name: "Color (Tinte)", price: "$1.750" }
       ],
       barbers: ["Carlos Mendoza", "Miguel Rodriguez", "Antonio Silva", "Diego Martinez"]
     },
@@ -58,9 +58,9 @@ const BookingSection: React.FC<BookingSectionProps> = ({ language }) => {
       tip: "Tip",
       noTip: "No tip",
       services: [
-        { name: "Haircut", price: "$1.200" },
-        { name: "Haircut + Beard", price: "$1.800" },
-        { name: "Color (Dye)", price: "$2.400" }
+        { name: "Haircut", price: "$500" },
+        { name: "Haircut + Beard", price: "$800" },
+        { name: "Color (Dye)", price: "$1.750" }
       ],
       barbers: ["Carlos Mendoza", "Miguel Rodriguez", "Antonio Silva", "Diego Martinez"]
     }

@@ -29,7 +29,7 @@ const Servicios: React.FC = () => {
           description: "Corte profesional adaptado a tu estilo personal y forma del rostro. Utilizamos técnicas modernas y clásicas para lograr el look perfecto.",
           fullDescription: "Nuestro servicio de corte incluye consulta personalizada, lavado con productos premium, corte con tijeras y/o máquina según tu preferencia, y peinado final. Cada corte se adapta a tu tipo de cabello y forma de rostro para garantizar el mejor resultado.",
           image: "https://images.unsplash.com/photo-1622286346003-4526d9101127?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-          price: "$1.200",
+          price: "$500",
           duration: "30 min",
           gallery: [
             "https://images.unsplash.com/photo-1622286346003-4526d9101127?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
@@ -44,7 +44,7 @@ const Servicios: React.FC = () => {
           description: "Servicio completo de corte y arreglo de barba con acabado perfecto. La combinación ideal para un look completo.",
           fullDescription: "Este servicio premium combina nuestro corte profesional con un cuidado completo de barba. Incluye perfilado, recorte, hidratación y acabado con productos especializados. El resultado es un look equilibrado y profesional.",
           image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-          price: "$1.800",
+          price: "$800",
           duration: "45 min",
           gallery: [
             "https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
@@ -59,7 +59,7 @@ const Servicios: React.FC = () => {
           description: "Coloración profesional para cubrir canas o cambiar tu look completamente. Productos de alta calidad y técnicas avanzadas.",
           fullDescription: "Servicio completo de coloración con productos premium. Incluye análisis del cabello, aplicación profesional del tinte, tratamiento nutritivo post-color y peinado final. Ideal para cubrir canas o experimentar con nuevos tonos.",
           image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-          price: "$2.400",
+          price: "$1.750",
           duration: "60 min",
           gallery: [
             "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
@@ -89,7 +89,7 @@ const Servicios: React.FC = () => {
           description: "Professional cut adapted to your personal style and face shape. We use modern and classic techniques to achieve the perfect look.",
           fullDescription: "Our haircut service includes personalized consultation, washing with premium products, cutting with scissors and/or machine according to your preference, and final styling. Each cut is adapted to your hair type and face shape to guarantee the best result.",
           image: "https://images.unsplash.com/photo-1622286346003-4526d9101127?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-          price: "$1.200",
+          price: "$500",
           duration: "30 min",
           gallery: [
             "https://images.unsplash.com/photo-1622286346003-4526d9101127?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
@@ -104,7 +104,7 @@ const Servicios: React.FC = () => {
           description: "Complete service of haircut and beard grooming with perfect finish. The ideal combination for a complete look.",
           fullDescription: "This premium service combines our professional haircut with complete beard care. Includes trimming, cutting, hydration and finishing with specialized products. The result is a balanced and professional look.",
           image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-          price: "$1.800",
+          price: "$800",
           duration: "45 min",
           gallery: [
             "https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
@@ -119,7 +119,7 @@ const Servicios: React.FC = () => {
           description: "Professional coloring to cover gray hair or completely change your look. High quality products and advanced techniques.",
           fullDescription: "Complete coloring service with premium products. Includes hair analysis, professional dye application, post-color nourishing treatment and final styling. Ideal for covering gray hair or experimenting with new tones.",
           image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-          price: "$2.400",
+          price: "$1.750",
           duration: "60 min",
           gallery: [
             "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",

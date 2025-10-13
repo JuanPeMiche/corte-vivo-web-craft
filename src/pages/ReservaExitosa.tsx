@@ -29,7 +29,7 @@ const ReservaExitosa: React.FC = () => {
         barber: "Carlos Mendoza",
         date: "15 de Febrero, 2025",
         time: "14:30",
-        total: "$1.800",
+        total: "$800",
         address: "Av. 18 de Julio 1234, Montevideo",
         phone: "+598 2xxx xxxx",
         email: "info@asbarberia.uy"
@@ -57,7 +57,7 @@ const ReservaExitosa: React.FC = () => {
         barber: "Carlos Mendoza",
         date: "February 15, 2025",
         time: "2:30 PM",
-        total: "$1.800",
+        total: "$800",
         address: "Av. 18 de Julio 1234, Montevideo",
         phone: "+598 2xxx xxxx",
         email: "info@asbarberia.uy"
