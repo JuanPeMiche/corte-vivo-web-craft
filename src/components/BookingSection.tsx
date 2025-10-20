@@ -148,6 +148,29 @@ const BookingSection: React.FC<BookingSectionProps> = ({ language }) => {
             </Button>
           </CardContent>
         </Card>
+
+        {/* Links directos a Calendly */}
+        <div className="mt-12">
+          <h3 className="text-2xl font-bold text-center mb-8">
+            {language === 'es' ? 'O reserva directamente:' : 'Or book directly:'}
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+            <Button 
+              className="btn-copper py-4"
+              onClick={() => window.open('https://calendly.com/lautarojoaquinsosanavarro8/45min', '_blank')}
+            >
+              <CalendarIcon className="w-5 h-5 mr-2" />
+              {language === 'es' ? 'Reservar con Lautaro' : 'Book with Lautaro'}
+            </Button>
+            <Button 
+              className="btn-copper py-4"
+              onClick={() => window.open('https://calendly.com/asbarberiaa2025/45min', '_blank')}
+            >
+              <CalendarIcon className="w-5 h-5 mr-2" />
+              {language === 'es' ? 'Reservar con Alexis' : 'Book with Alexis'}
+            </Button>
+          </div>
+        </div>
       </div>
     </section>
   );
