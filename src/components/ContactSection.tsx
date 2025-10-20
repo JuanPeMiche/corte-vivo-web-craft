@@ -47,42 +47,42 @@ const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
         <div className="max-w-4xl mx-auto">
           {/* Información de contacto centrada */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div className="bg-white/70 backdrop-blur-sm rounded-lg p-6 shadow-sm text-center">
+            <div className="bg-charcoal/90 backdrop-blur-sm rounded-lg p-6 shadow-sm text-center">
               <div className="flex items-center justify-center mb-3">
                 <MapPin className="w-6 h-6 text-copper" />
               </div>
-              <h3 className="font-semibold text-charcoal mb-2">Dirección</h3>
-              <p className="text-charcoal/80 text-sm">{text.address}</p>
+              <h3 className="font-semibold text-cream mb-2">Dirección</h3>
+              <p className="text-cream/80 text-sm">{text.address}</p>
             </div>
 
-            <div className="bg-white/70 backdrop-blur-sm rounded-lg p-6 shadow-sm text-center">
+            <div className="bg-charcoal/90 backdrop-blur-sm rounded-lg p-6 shadow-sm text-center">
               <div className="flex items-center justify-center mb-3">
                 <Phone className="w-6 h-6 text-copper" />
               </div>
-              <h3 className="font-semibold text-charcoal mb-2">Teléfono</h3>
-              <p className="text-charcoal/80 text-sm">{text.phone}</p>
+              <h3 className="font-semibold text-cream mb-2">Teléfono</h3>
+              <p className="text-cream/80 text-sm">{text.phone}</p>
             </div>
 
-            <div className="bg-white/70 backdrop-blur-sm rounded-lg p-6 shadow-sm text-center">
+            <div className="bg-charcoal/90 backdrop-blur-sm rounded-lg p-6 shadow-sm text-center">
               <div className="flex items-center justify-center mb-3">
                 <Mail className="w-6 h-6 text-copper" />
               </div>
-              <h3 className="font-semibold text-charcoal mb-2">Email</h3>
-              <p className="text-charcoal/80 text-sm">{text.email}</p>
+              <h3 className="font-semibold text-cream mb-2">Email</h3>
+              <p className="text-cream/80 text-sm">{text.email}</p>
             </div>
 
-            <div className="bg-white/70 backdrop-blur-sm rounded-lg p-6 shadow-sm text-center">
+            <div className="bg-charcoal/90 backdrop-blur-sm rounded-lg p-6 shadow-sm text-center">
               <div className="flex items-center justify-center mb-3">
                 <Clock className="w-6 h-6 text-copper" />
               </div>
-              <h3 className="font-semibold text-charcoal mb-2">{text.hours}</h3>
-              <p className="text-charcoal/80 text-sm">{text.weekdays}</p>
+              <h3 className="font-semibold text-cream mb-2">{text.hours}</h3>
+              <p className="text-cream/80 text-sm">{text.weekdays}</p>
             </div>
           </div>
 
           {/* Mapa centrado */}
-          <div className="bg-white/70 backdrop-blur-sm rounded-lg p-6 shadow-sm">
-            <h3 className="text-2xl font-semibold text-charcoal mb-6 text-center flex items-center justify-center">
+          <div className="bg-charcoal/90 backdrop-blur-sm rounded-lg p-6 shadow-sm">
+            <h3 className="text-2xl font-semibold text-cream mb-6 text-center flex items-center justify-center">
               <MapPin className="w-6 h-6 text-copper mr-2" />
               {text.location}
             </h3>
@@ -113,7 +113,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
               </a>
             </div>
             <div className="mt-4 text-center">
-              <p className="text-charcoal/70">{text.address}</p>
+              <p className="text-cream/70">{text.address}</p>
             </div>
           </div>
         </div>
