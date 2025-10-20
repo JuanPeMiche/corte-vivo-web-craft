@@ -16,17 +16,17 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 15% 15%;
     
-    /* Urban barbershop primary - charcoal black */
-    --primary: 210 15% 15%;
-    --primary-foreground: 0 0% 98%;
+    /* Black primary */
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
     
-    /* Urban gray for secondary elements */
-    --secondary: 210 10% 85%;
-    --secondary-foreground: 210 15% 20%;
+    /* Blue accent */
+    --secondary: 221 83% 53%;
+    --secondary-foreground: 0 0% 100%;
     
-    /* Copper accent for highlights */
-    --accent: 25 85% 45%;
-    --accent-foreground: 0 0% 98%;
+    /* Red accent for highlights */
+    --accent: 0 84% 60%;
+    --accent-foreground: 0 0% 100%;
     
     /* Muted grays */
     --muted: 210 10% 92%;
@@ -38,22 +38,23 @@
     --input: 210 10% 88%;
     --ring: 25 85% 45%;
     
-    /* Barbershop specific colors */
-    --copper: 25 85% 45%;
-    --copper-light: 25 85% 65%;
-    --charcoal: 210 15% 15%;
-    --urban-gray: 210 10% 60%;
-    --warm-white: 45 15% 98%;
+    /* AS Barbería specific colors */
+    --copper: 0 84% 60%;
+    --copper-light: 0 84% 70%;
+    --blue: 221 83% 53%;
+    --blue-light: 221 83% 63%;
+    --charcoal: 0 0% 0%;
+    --warm-white: 0 0% 100%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(210 15% 15%), hsl(210 15% 25%));
-    --gradient-copper: linear-gradient(135deg, hsl(25 85% 45%), hsl(25 85% 65%));
-    --gradient-card: linear-gradient(180deg, hsl(45 15% 98%), hsl(210 10% 92%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 0%), hsl(0 0% 10%));
+    --gradient-copper: linear-gradient(135deg, hsl(0 84% 60%), hsl(221 83% 53%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 98%));
     
     /* Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(210 15% 15% / 0.2);
-    --shadow-copper: 0 0 30px hsl(25 85% 45% / 0.3);
-    --shadow-card: 0 4px 20px hsl(210 15% 15% / 0.1);
+    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.2);
+    --shadow-copper: 0 0 30px hsl(0 84% 60% / 0.3);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.1);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -148,15 +149,27 @@
   }
   
   .text-copper {
-    color: hsl(25 85% 45%);
+    color: hsl(0 84% 60%);
   }
   
   .bg-copper {
-    background-color: hsl(25 85% 45%);
+    background-color: hsl(0 84% 60%);
   }
   
   .border-copper {
-    border-color: hsl(25 85% 45%);
+    border-color: hsl(0 84% 60%);
+  }
+  
+  .text-blue {
+    color: hsl(221 83% 53%);
+  }
+  
+  .bg-blue {
+    background-color: hsl(221 83% 53%);
+  }
+  
+  .border-blue {
+    border-color: hsl(221 83% 53%);
   }
   
   .hover-scale {

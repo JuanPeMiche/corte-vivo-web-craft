@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import asLogo from '@/assets/as-logo.png';
 
@@ -11,32 +11,22 @@ interface NavigationProps {
 const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navItems = {
-    es: [
-      { href: "#hero", label: "Inicio" },
-      { href: "#servicios", label: "Servicios" },
-      { href: "#estilos", label: "Estilos" },
-      { href: "#equipo", label: "Equipo" },
-      { href: "#blog", label: "Blog" },
-      { href: "#reserva", label: "Reserva" },
-      { href: "#contacto", label: "Contacto" }
-    ],
-    en: [
-      { href: "#hero", label: "Home" },
-      { href: "#servicios", label: "Services" },
-      { href: "#estilos", label: "Styles" },
-      { href: "#equipo", label: "Team" },
-      { href: "#blog", label: "Blog" },
-      { href: "#reserva", label: "Book" },
-      { href: "#contacto", label: "Contact" }
-    ]
-  };
-
-  const currentNav = navItems[language as keyof typeof navItems];
+  const navItems = [
+    { href: "#hero", label: language === 'es' ? "Inicio" : "Home" },
+    { href: "#servicios", label: language === 'es' ? "Servicios" : "Services" },
+    { href: "#estilos", label: language === 'es' ? "Estilos" : "Styles" },
+    { href: "#equipo", label: language === 'es' ? "Equipo" : "Team" },
+    { href: "#reserva", label: language === 'es' ? "Reserva" : "Book" },
+    { href: "#contacto", label: language === 'es' ? "Contacto" : "Contact" }
+  ];
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+    if (window.location.pathname !== '/') {
+      window.location.href = '/' + href;
+    } else {
+      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -60,7 +50,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {currentNav.map((item) => (
+            {navItems.map((item) => (
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
@@ -71,37 +61,22 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
             ))}
           </div>
 
-          {/* Language Selector & Mobile Menu */}
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2">
-              <Globe className="w-4 h-4 text-muted-foreground" />
-              <select
-                value={language}
-                onChange={(e) => onLanguageChange?.(e.target.value)}
-                className="bg-transparent text-sm font-medium focus:outline-none cursor-pointer"
-              >
-                <option value="es">ES</option>
-                <option value="en">EN</option>
-              </select>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="md:hidden"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </Button>
-          </div>
+          {/* Mobile Menu Button */}
+          <Button
+            variant="ghost"
+            size="sm"
+            className="md:hidden"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </Button>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden bg-card border-t border-border">
             <div className="py-4 space-y-2">
-              {currentNav.map((item) => (
+              {navItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={() => handleNavClick(item.href)}

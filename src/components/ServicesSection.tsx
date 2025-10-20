@@ -135,23 +135,13 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
                 <Button
                   onClick={() => setSelectedService(service)}
                   variant="outline"
-                  className="btn-outline-copper"
+                  className="btn-outline-copper w-full"
                 >
                   {text.quickView}
                 </Button>
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        <div className="text-center">
-          <Button 
-            size="lg" 
-            className="btn-copper"
-            onClick={() => window.location.href = '/servicios'}
-          >
-            {text.viewAll}
-          </Button>
         </div>
       </div>
 
@@ -169,16 +159,6 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
                   {selectedService.fullDescription}
                 </DialogDescription>
               </DialogHeader>
-              <div className="grid grid-cols-2 gap-4 mt-6">
-                <div className="text-center p-4 bg-muted rounded-lg">
-                  <p className="font-semibold text-copper">{text.price}</p>
-                  <p className="text-2xl font-bold">{selectedService.price}</p>
-                </div>
-                <div className="text-center p-4 bg-muted rounded-lg">
-                  <p className="font-semibold text-copper">{text.duration}</p>
-                  <p className="text-2xl font-bold">{selectedService.duration}</p>
-                </div>
-              </div>
             </>
           )}
         </DialogContent>

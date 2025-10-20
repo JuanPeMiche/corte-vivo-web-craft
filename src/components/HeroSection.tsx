@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Download, Calendar } from 'lucide-react';
+import { Calendar } from 'lucide-react';
+import heroBg from '@/assets/hero-bg.jpg';
 
 interface HeroSectionProps {
   language: string;
@@ -40,19 +41,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with overlay */}
-      <div className="absolute inset-0 hero-gradient">
-        <div className="absolute inset-0 bg-black/40"></div>
-      </div>
-      
-      {/* Background Image - Haircut focused */}
+      {/* Background Image - AS Logo */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+          backgroundImage: `url(${heroBg})`
         }}
       >
-        <div className="absolute inset-0 bg-primary/70"></div>
+        <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
       {/* Content */}
@@ -69,21 +65,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
           {text.subtitle}
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <Button
-            onClick={handleDownloadPDF}
-            size="lg"
-            className="btn-copper text-lg px-8 py-4 hover-scale"
-          >
-            <Download className="w-5 h-5 mr-2" />
-            {text.btnCatalog}
-          </Button>
-          
+        <div className="flex justify-center">
           <Button
             onClick={handleBooking}
-            variant="outline"
             size="lg"
-            className="btn-outline-copper text-lg px-8 py-4 hover-scale border-white text-white hover:bg-white hover:text-primary"
+            className="btn-copper text-lg px-8 py-4 hover-scale"
           >
             <Calendar className="w-5 h-5 mr-2" />
             {text.btnBook}

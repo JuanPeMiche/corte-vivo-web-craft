@@ -1,11 +1,7 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Eye } from 'lucide-react';
-import estilo1 from '@/assets/estilo-1.png';
-import estilo2 from '@/assets/estilo-2.png';
-import estilo3 from '@/assets/estilo-3.png';
-import estilo4 from '@/assets/estilo-4.png';
+import corte1 from '@/assets/corte-1.jpg';
+import corte2 from '@/assets/corte-2.jpg';
+import corte3 from '@/assets/corte-3.jpg';
 
 interface StylesSectionProps {
   language: string;
@@ -14,67 +10,19 @@ interface StylesSectionProps {
 const StylesSection: React.FC<StylesSectionProps> = ({ language }) => {
   const content = {
     es: {
-      title: "Estilos Destacados",
-      subtitle: "Nuestros cortes y barbas más populares",
-      viewStyle: "Ver estilo",
-      viewMore: "Ver más estilos",
+      title: "Algunos de Nuestros Cortes Más Populares",
       styles: [
-        {
-          id: "fade-moderno",
-          name: "Fade Moderno",
-          image: estilo1,
-          description: "Degradado perfecto con líneas definidas"
-        },
-        {
-          id: "clasico-elegante",
-          name: "Clásico Elegante",
-          image: estilo2,
-          description: "Estilo atemporal para el hombre sofisticado"
-        },
-        {
-          id: "barba-full",
-          name: "Barba Full",
-          image: estilo3,
-          description: "Barba completa con perfilado profesional"
-        },
-        {
-          id: "undercut-textured",
-          name: "Undercut Texturizado",
-          image: estilo4,
-          description: "Corte urbano con textura y movimiento"
-        }
+        { id: 1, image: corte1, alt: "Corte popular 1" },
+        { id: 2, image: corte2, alt: "Corte popular 2" },
+        { id: 3, image: corte3, alt: "Corte popular 3" }
       ]
     },
     en: {
-      title: "Featured Styles",
-      subtitle: "Our most popular cuts and beards",
-      viewStyle: "View style",
-      viewMore: "View more styles",
+      title: "Some of Our Most Popular Cuts",
       styles: [
-        {
-          id: "modern-fade",
-          name: "Modern Fade",
-          image: estilo1,
-          description: "Perfect gradient with defined lines"
-        },
-        {
-          id: "elegant-classic",
-          name: "Elegant Classic",
-          image: estilo2,
-          description: "Timeless style for the sophisticated man"
-        },
-        {
-          id: "full-beard",
-          name: "Full Beard",
-          image: estilo3,
-          description: "Complete beard with professional styling"
-        },
-        {
-          id: "textured-undercut",
-          name: "Textured Undercut",
-          image: estilo4,
-          description: "Urban cut with texture and movement"
-        }
+        { id: 1, image: corte1, alt: "Popular cut 1" },
+        { id: 2, image: corte2, alt: "Popular cut 2" },
+        { id: 3, image: corte3, alt: "Popular cut 3" }
       ]
     }
   };
@@ -88,48 +36,21 @@ const StylesSection: React.FC<StylesSectionProps> = ({ language }) => {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
             {text.title}
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            {text.subtitle}
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {text.styles.map((style) => (
-            <Card key={style.id} className="group overflow-hidden shadow-card hover:shadow-elegant transition-smooth">
-              <div className="relative overflow-hidden">
-                <img
-                  src={style.image}
-                  alt={style.name}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-smooth"
-                />
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-smooth flex items-center justify-center">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="border-white text-white hover:bg-white hover:text-primary"
-                    onClick={() => window.location.href = `/estilos/${style.id}`}
-                  >
-                    <Eye className="w-4 h-4 mr-2" />
-                    {text.viewStyle}
-                  </Button>
-                </div>
-              </div>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-2">{style.name}</h3>
-                <p className="text-muted-foreground">{style.description}</p>
-              </CardContent>
-            </Card>
+            <div 
+              key={style.id} 
+              className="overflow-hidden rounded-lg shadow-card hover:shadow-elegant transition-smooth hover-scale"
+            >
+              <img
+                src={style.image}
+                alt={style.alt}
+                className="w-full h-96 object-cover"
+              />
+            </div>
           ))}
-        </div>
-
-        <div className="text-center">
-          <Button 
-            size="lg" 
-            className="btn-copper"
-            onClick={() => window.location.href = '/estilos'}
-          >
-            {text.viewMore}
-          </Button>
         </div>
       </div>
     </section>

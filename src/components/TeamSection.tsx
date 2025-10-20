@@ -1,11 +1,8 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import barber1 from '@/assets/barber-1.jpg';
-import barber2 from '@/assets/barber-2.jpg';
-import barber3 from '@/assets/barber-3.jpg';
-import barber4 from '@/assets/barber-4.jpg';
+import alexis from '@/assets/alexis.jpg';
+import lautaro from '@/assets/lautaro.jpg';
 
 interface TeamSectionProps {
   language: string;
@@ -15,71 +12,41 @@ const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
   const content = {
     es: {
       title: "Nuestro Equipo",
-      subtitle: "Barberos expertos con pasión por el estilo",
-      meetTeam: "Conoce a todo el equipo",
+      subtitle: "Profesionales con pasión por el estilo",
       team: [
         {
-          id: "carlos",
-          name: "Carlos Mendoza",
-          specialty: "Especialista en Cortes Clásicos",
-          image: barber1,
+          id: "alexis",
+          name: "Alexis Seijas",
+          specialty: "Especialista en Cortes Modernos",
+          image: alexis,
           experience: "8 años"
         },
         {
-          id: "miguel",
-          name: "Miguel Rodriguez",
-          specialty: "Master en Fade & Degradé",
-          image: barber2,
+          id: "lautaro",
+          name: "Lautaro Sosa",
+          specialty: "Master en Estilo & Diseño",
+          image: lautaro,
           experience: "6 años"
-        },
-        {
-          id: "antonio",
-          name: "Antonio Silva",
-          specialty: "Afeitado Tradicional",
-          image: barber3,
-          experience: "12 años"
-        },
-        {
-          id: "diego",
-          name: "Diego Martinez",
-          specialty: "Barber Artist",
-          image: barber4,
-          experience: "5 años"
         }
       ]
     },
     en: {
       title: "Our Team",
-      subtitle: "Expert barbers with a passion for style",
-      meetTeam: "Meet the entire team",
+      subtitle: "Professionals with a passion for style",
       team: [
         {
-          id: "carlos",
-          name: "Carlos Mendoza",
-          specialty: "Classic Cuts Specialist",
-          image: barber1,
+          id: "alexis",
+          name: "Alexis Seijas",
+          specialty: "Modern Cuts Specialist",
+          image: alexis,
           experience: "8 years"
         },
         {
-          id: "miguel",
-          name: "Miguel Rodriguez",
-          specialty: "Fade & Gradient Master",
-          image: barber2,
+          id: "lautaro",
+          name: "Lautaro Sosa",
+          specialty: "Style & Design Master",
+          image: lautaro,
           experience: "6 years"
-        },
-        {
-          id: "antonio",
-          name: "Antonio Silva",
-          specialty: "Traditional Shaving",
-          image: barber3,
-          experience: "12 years"
-        },
-        {
-          id: "diego",
-          name: "Diego Martinez",
-          specialty: "Barber Artist",
-          image: barber4,
-          experience: "5 years"
         }
       ]
     }
@@ -99,7 +66,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {text.team.map((member) => (
             <Card key={member.id} className="text-center shadow-card hover:shadow-elegant transition-smooth hover-scale">
               <CardContent className="p-6">
@@ -107,7 +74,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-copper shadow-copper"
+                    className="w-48 h-48 rounded-full mx-auto object-cover border-4 border-copper shadow-copper"
                   />
                   <Badge className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-copper text-white">
                     {member.experience}
@@ -118,16 +85,6 @@ const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        <div className="text-center">
-          <Button 
-            size="lg" 
-            className="btn-copper"
-            onClick={() => window.location.href = '/equipo'}
-          >
-            {text.meetTeam}
-          </Button>
         </div>
       </div>
     </section>
