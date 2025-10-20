@@ -33,11 +33,7 @@ const BookingSection: React.FC<BookingSectionProps> = ({ language }) => {
       online: "Pago en línea",
       tip: "Propina",
       noTip: "Sin propina",
-      services: [
-        { name: "Corte", price: "$500" },
-        { name: "Corte + Barba", price: "$800" },
-        { name: "Color (Tinte)", price: "$1.750" }
-      ],
+      services: ["Corte", "Corte + Barba", "Color (Tinte)"],
       barbers: ["Alexis Seijas", "Lautaro Sosa"]
     },
     en: {
@@ -57,11 +53,7 @@ const BookingSection: React.FC<BookingSectionProps> = ({ language }) => {
       online: "Online payment",
       tip: "Tip",
       noTip: "No tip",
-      services: [
-        { name: "Haircut", price: "$500" },
-        { name: "Haircut + Beard", price: "$800" },
-        { name: "Color (Dye)", price: "$1.750" }
-      ],
+      services: ["Haircut", "Haircut + Beard", "Color (Dye)"],
       barbers: ["Alexis Seijas", "Lautaro Sosa"]
     }
   };
@@ -97,8 +89,8 @@ const BookingSection: React.FC<BookingSectionProps> = ({ language }) => {
                   </SelectTrigger>
                   <SelectContent className="bg-card border border-border z-50">
                     {text.services.map((service) => (
-                      <SelectItem key={service.name} value={service.name}>
-                        {service.name} - {service.price}
+                      <SelectItem key={service} value={service}>
+                        {service}
                       </SelectItem>
                     ))}
                   </SelectContent>

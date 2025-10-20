@@ -34,18 +34,12 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
       <div className="container-responsive">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <div className="flex items-center gap-3 group">
-            <div className="relative">
-              <img 
-                src={asLogo} 
-                alt="AS Barbería" 
-                className="w-10 h-10 transition-transform duration-300 group-hover:scale-110" 
-              />
-            </div>
-            <div className="flex flex-col leading-tight">
-              <span className="text-2xl font-bold text-copper tracking-tight">AS</span>
-              <span className="text-sm font-semibold text-primary tracking-wide">Barbería</span>
-            </div>
+          <div className="flex items-center group">
+            <img 
+              src={asLogo} 
+              alt="AS Barbería" 
+              className="w-16 h-16 transition-transform duration-300 group-hover:scale-110" 
+            />
           </div>
 
           {/* Desktop Navigation */}
