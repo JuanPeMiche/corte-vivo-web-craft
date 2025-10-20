@@ -11,29 +11,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
   const content = {
     es: {
       title: "Bienvenido a AS Barbería",
-      subtitle: "Estilo auténtico, acabado perfecto",
-      btnCatalog: "Ver catálogo de servicios",
+      subtitle: "Estilo puro, corte perfecto",
       btnBook: "Reserva tu turno"
     },
     en: {
       title: "Welcome to AS Barbería",
-      subtitle: "Authentic style, perfect finish",
-      btnCatalog: "View services catalog",
+      subtitle: "Pure style, perfect cut",
       btnBook: "Book your appointment"
     }
   };
 
   const text = content[language as keyof typeof content];
-
-  const handleDownloadPDF = () => {
-    // Create a link to download the PDF
-    const link = document.createElement('a');
-    link.href = '/assets/servicios_asbarberia.pdf';
-    link.download = 'servicios_asbarberia.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
 
   const handleBooking = () => {
     document.querySelector('#reserva')?.scrollIntoView({ behavior: 'smooth' });

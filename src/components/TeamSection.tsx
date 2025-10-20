@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import alexis from '@/assets/alexis.jpg';
 import lautaro from '@/assets/lautaro.jpg';
 
@@ -70,18 +69,14 @@ const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
           {text.team.map((member) => (
             <Card key={member.id} className="text-center shadow-card hover:shadow-elegant transition-smooth hover-scale">
               <CardContent className="p-6">
-                <div className="relative mb-6">
+                <div className="mb-6">
                   <img
                     src={member.image}
                     alt={member.name}
                     className="w-48 h-48 rounded-full mx-auto object-cover border-4 border-copper shadow-copper"
                   />
-                  <Badge className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-copper text-white">
-                    {member.experience}
-                  </Badge>
                 </div>
-                <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                <p className="text-copper font-semibold mb-4">{member.specialty}</p>
+                <h3 className="text-xl font-bold">{member.name}</h3>
               </CardContent>
             </Card>
           ))}

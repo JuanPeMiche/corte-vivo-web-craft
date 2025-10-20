@@ -25,7 +25,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
   const content = {
     es: {
       title: "Nuestros Servicios",
-      subtitle: "Experiencias de grooming que transforman tu imagen",
+      subtitle: "Cortes de primera, estilo uruguayo",
       viewAll: "Ver todos los servicios",
       quickView: "Vista rápida",
       price: "Precio",
@@ -65,7 +65,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
     },
     en: {
       title: "Our Services",
-      subtitle: "Grooming experiences that transform your image",
+      subtitle: "First-class cuts, Uruguayan style",
       viewAll: "View all services",
       quickView: "Quick view",
       price: "Price",

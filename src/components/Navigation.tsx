@@ -49,7 +49,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex flex-1 items-center justify-center space-x-8">
             {navItems.map((item) => (
               <button
                 key={item.href}
@@ -60,6 +60,9 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
               </button>
             ))}
           </div>
+          
+          {/* Spacer for balance */}
+          <div className="hidden md:block w-[120px]"></div>
 
           {/* Mobile Menu Button */}
           <Button

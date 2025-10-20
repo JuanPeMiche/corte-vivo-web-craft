@@ -105,14 +105,6 @@ const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
                 </div>
               </div>
             </div>
-
-            <div className="bg-muted/50 p-6 rounded-lg">
-              <h4 className="font-semibold mb-4">{text.newsletter}</h4>
-              <div className="flex gap-2">
-                <Input placeholder={text.email} className="flex-1" />
-                <Button className="btn-copper">{text.subscribe}</Button>
-              </div>
-            </div>
           </div>
         </div>
       </div>

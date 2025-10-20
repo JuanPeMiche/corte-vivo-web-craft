@@ -38,7 +38,7 @@ const BookingSection: React.FC<BookingSectionProps> = ({ language }) => {
         { name: "Corte + Barba", price: "$800" },
         { name: "Color (Tinte)", price: "$1.750" }
       ],
-      barbers: ["Carlos Mendoza", "Miguel Rodriguez", "Antonio Silva", "Diego Martinez"]
+      barbers: ["Alexis Seijas", "Lautaro Sosa"]
     },
     en: {
       title: "Book Your Appointment",
@@ -62,7 +62,7 @@ const BookingSection: React.FC<BookingSectionProps> = ({ language }) => {
         { name: "Haircut + Beard", price: "$800" },
         { name: "Color (Dye)", price: "$1.750" }
       ],
-      barbers: ["Carlos Mendoza", "Miguel Rodriguez", "Antonio Silva", "Diego Martinez"]
+      barbers: ["Alexis Seijas", "Lautaro Sosa"]
     }
   };
 
@@ -134,33 +134,17 @@ const BookingSection: React.FC<BookingSectionProps> = ({ language }) => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <Label>{text.paymentMethod}</Label>
-                <Select>
-                  <SelectTrigger>
-                    <SelectValue placeholder={text.paymentMethod} />
-                  </SelectTrigger>
-                  <SelectContent className="bg-card border border-border z-50">
-                    <SelectItem value="store">{text.inStore}</SelectItem>
-                    <SelectItem value="online">{text.online}</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div>
-                <Label>{text.tip}</Label>
-                <Select>
-                  <SelectTrigger>
-                    <SelectValue placeholder={text.tip} />
-                  </SelectTrigger>
-                  <SelectContent className="bg-card border border-border z-50">
-                    <SelectItem value="0">{text.noTip}</SelectItem>
-                    <SelectItem value="5">5%</SelectItem>
-                    <SelectItem value="10">10%</SelectItem>
-                    <SelectItem value="custom">Otro monto</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+            <div>
+              <Label>{text.paymentMethod}</Label>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder={text.paymentMethod} />
+                </SelectTrigger>
+                <SelectContent className="bg-card border border-border z-50">
+                  <SelectItem value="store">{text.inStore}</SelectItem>
+                  <SelectItem value="online">{text.online}</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
 
             <Button 
