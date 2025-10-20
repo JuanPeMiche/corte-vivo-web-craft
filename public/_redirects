@@ -1,0 +1,11 @@
+# Redirecciones para SPA (Single Page Application)
+/*    /index.html   200
+
+# Redirecciones para dominios (si tienes múltiples)
+# https://www.asbarberia.uy/*  https://asbarberia.uy/:splat  301!
+# http://asbarberia.uy/*       https://asbarberia.uy/:splat  301!
+# http://www.asbarberia.uy/*   https://asbarberia.uy/:splat  301!
+
+# Redirecciones de URLs antiguas (agregar según necesites)
+# /old-contact    /contacto    301
+# /old-services   /servicios   301

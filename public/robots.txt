@@ -1,3 +1,13 @@
+# Robots.txt para AS Barbería
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://asbarberia.uy/sitemap.xml
+
+# Allow specific bots
 User-agent: Googlebot
 Allow: /
 
