@@ -14,18 +14,18 @@ const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
       subtitle: "Profesionales con pasión por el estilo",
       team: [
         {
-          id: "lautaro",
-          name: "Lautaro Sosa",
-          specialty: "Master en Estilo & Diseño",
-          image: lautaro,
-          experience: "6 años"
-        },
-        {
           id: "alexis",
           name: "Alexis Seijas",
           specialty: "Especialista en Cortes Modernos",
-          image: alexis,
+          image: lautaro,
           experience: "8 años"
+        },
+        {
+          id: "lautaro",
+          name: "Lautaro Sosa",
+          specialty: "Master en Estilo & Diseño",
+          image: alexis,
+          experience: "6 años"
         }
       ]
     },
@@ -37,14 +37,14 @@ const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
           id: "alexis",
           name: "Alexis Seijas",
           specialty: "Modern Cuts Specialist",
-          image: alexis,
+          image: lautaro,
           experience: "8 years"
         },
         {
           id: "lautaro",
           name: "Lautaro Sosa",
           specialty: "Style & Design Master",
-          image: lautaro,
+          image: alexis,
           experience: "6 years"
         }
       ]
