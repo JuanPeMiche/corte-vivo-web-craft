@@ -20,26 +20,16 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    // Optimización para producción
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: mode === 'production',
-        drop_debugger: mode === 'production',
-      },
-    },
-    // Configurar chunks para mejor caching
+    // Optimización básica para producción
+    minify: 'esbuild',
+    // Configuración simplificada para evitar errores de rollup
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          router: ['react-router-dom'],
-          ui: ['lucide-react', '@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
-        },
+        manualChunks: undefined,
       },
     },
     // Reportar tamaño de bundles
-    reportCompressedSize: true,
+    reportCompressedSize: false,
     chunkSizeWarningLimit: 1000,
   },
   // Headers de seguridad para desarrollo
