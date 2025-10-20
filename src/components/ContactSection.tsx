@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
+import InteractiveMap from '@/components/ui/interactive-map';
 import { MapPin, Phone, Mail, Clock, Send, AlertCircle, CheckCircle } from 'lucide-react';
 import { useFormValidation } from '@/hooks/use-form-validation';
 import { toast } from 'sonner';
@@ -261,6 +262,14 @@ const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
                 </div>
               </div>
             </div>
+
+            {/* Mapa Interactivo */}
+            <InteractiveMap
+              address={text.address}
+              businessName="AS Barbería"
+              language={language}
+              className="mt-8"
+            />
           </div>
         </div>
       </div>

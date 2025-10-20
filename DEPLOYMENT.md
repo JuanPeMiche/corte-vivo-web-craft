@@ -181,6 +181,23 @@ npm run preview:https
 3. **Google Analytics**: Reemplazar ID de ejemplo por el real
 4. **Iconos sociales**: Actualizar enlaces de redes sociales
 5. **Certificado SSL**: Obligatorio para PWA y credibilidad
+6. **Coordenadas del mapa**: Actualizar latitud y longitud en `src/components/ui/interactive-map.tsx`
+
+### 📍 Configurar Coordenadas del Mapa
+
+Para obtener las coordenadas exactas de tu negocio:
+
+1. Ve a [Google Maps](https://maps.google.com)
+2. Busca tu dirección exacta
+3. Haz clic derecho en la ubicación exacta
+4. Selecciona "¿Qué hay aquí?"
+5. Copia las coordenadas que aparecen
+6. Actualiza en `src/components/ui/interactive-map.tsx`:
+
+```typescript
+const latitude = -34.9032727;  // Tu latitud
+const longitude = -56.1947856; // Tu longitud
+```
 
 ## 📊 Métricas a Monitorear
 
