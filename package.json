@@ -1,8 +1,26 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "web-as-barberia",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Sitio web profesional para AS Barbería - Estilo auténtico, acabado perfecto",
   "type": "module",
+  "homepage": "https://asbarberia.uy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JuanPeMiche/web-as-barberia"
+  },
+  "keywords": [
+    "barbería",
+    "barbershop", 
+    "montevideo",
+    "corte de pelo",
+    "barba",
+    "peluquería masculina"
+  ],
+  "author": {
+    "name": "AS Barbería",
+    "url": "https://asbarberia.uy"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",

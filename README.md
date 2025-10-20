@@ -1,8 +1,22 @@
-# Welcome to your Lovable project
+# 💈 AS Barbería - Web Oficial
 
-## Project info
+**Sitio web profesional para AS Barbería** - *Estilo auténtico, acabado perfecto*
 
-**URL**: https://lovable.dev/projects/b90ec846-a47e-4026-83ce-ccf1e6791a14
+## 🚀 Información del Proyecto
+
+**URL de Producción**: https://web-as-barberia.vercel.app  
+**Repositorio**: https://github.com/JuanPeMiche/web-as-barberia  
+**Desarrollo con**: React + TypeScript + Vite + Tailwind CSS
+
+## ✨ Características
+
+- 🎨 **Diseño moderno y responsive**
+- 📱 **PWA (Progressive Web App)**
+- 🗺️ **Mapa interactivo** con ubicación del negocio
+- 📝 **Formulario de contacto** con validación
+- 🌐 **Multiidioma** (Español/Inglés)
+- ⚡ **Optimizado para velocidad** y SEO
+- 🔒 **Seguro** con headers de protección
 
 ## How can I edit this code?
 
