@@ -16,7 +16,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
       team: [
         {
           id: "alexis",
-          name: "Alexis Seijas",
+          name: "Alex Seijas",
           specialty: "Especialista en Cortes Modernos",
           image: lautaro,
           experience: "8 años",
@@ -39,7 +39,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
       team: [
         {
           id: "alexis",
-          name: "Alexis Seijas",
+          name: "Alex Seijas",
           specialty: "Modern Cuts Specialist",
           image: lautaro,
           experience: "8 years",
