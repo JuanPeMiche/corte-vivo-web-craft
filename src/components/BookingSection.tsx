@@ -36,7 +36,7 @@ const BookingSection: React.FC<BookingSectionProps> = ({ language }) => {
               href="https://calendly.com/lautarojoaquinsosanavarro8/45min"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full bg-copper text-cream py-3 px-6 rounded-lg font-semibold text-lg hover:bg-copper/90 transition-colors"
+              className="block w-full bg-charcoal text-cream py-3 px-6 rounded-lg font-semibold text-lg hover:bg-charcoal/90 transition-colors"
             >
               {text.lautaro}
             </a>

@@ -93,28 +93,6 @@ const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
                 language={language}
               />
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://goo.gl/maps/your-location"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center px-6 py-3 bg-copper text-cream rounded-lg hover:bg-copper/90 transition-colors font-semibold"
-              >
-                <MapPin className="w-4 h-4 mr-2" />
-                {text.directions}
-              </a>
-              <a
-                href="https://maps.google.com/?q=Av.+18+de+Julio+1234,+Montevideo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center px-6 py-3 bg-charcoal text-cream rounded-lg hover:bg-charcoal/90 transition-colors font-semibold"
-              >
-                {text.googleMaps}
-              </a>
-            </div>
-            <div className="mt-4 text-center">
-              <p className="text-cream/70">{text.address}</p>
-            </div>
           </div>
         </div>
       </div>
