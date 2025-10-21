@@ -11,11 +11,11 @@ const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
     es: {
       title: "Contacto",
       subtitle: "Visítanos o escríbenos",
-      address: "Av. 18 de Julio 1234, Montevideo",
-      phone: "+598 2XXX XXXX",
-      email: "info@asbarberia.uy",
+      address: "Florida esquina Rincón 841, Maldonado",
+      phone: "(+598) 92 048 926",
+      email: "asbarberias@gmail.com",
       hours: "Horarios",
-      weekdays: "Lun-Vie: 9:00-19:00, Sáb: 9:00-17:00",
+      weekdays: "Consultar vía mensaje o email",
       location: "Nuestra Ubicación",
       directions: "Cómo llegar",
       googleMaps: "Ver en Google Maps"
@@ -23,11 +23,11 @@ const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
     en: {
       title: "Contact",
       subtitle: "Visit us or write to us",
-      address: "Av. 18 de Julio 1234, Montevideo",
-      phone: "+598 2XXX XXXX", 
-      email: "info@asbarberia.uy",
+      address: "Florida esquina Rincón 841, Maldonado",
+      phone: "(+598) 92 048 926", 
+      email: "asbarberias@gmail.com",
       hours: "Hours",
-      weekdays: "Mon-Fri: 9:00-19:00, Sat: 9:00-17:00",
+      weekdays: "Contact via message or email",
       location: "Our Location",
       directions: "How to get there",
       googleMaps: "View on Google Maps"

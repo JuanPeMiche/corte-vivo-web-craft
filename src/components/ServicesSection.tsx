@@ -52,13 +52,13 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
           images: ["https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
         },
         {
-          id: "color-tinte",
+          id: "barba",
           icon: <Sparkles className="w-8 h-8" />,
-          title: "Color (Tinte)",
-          description: "Coloración profesional para cubrir canas o cambiar tu look completamente",
-          fullDescription: "Servicio completo de coloración con productos premium. Incluye análisis del cabello, aplicación profesional y tratamiento nutritivo post-color.",
-          price: "$1.750",
-          duration: "60 min",
+          title: "Barba",
+          description: "Arreglo y perfilado profesional de barba con acabado impecable",
+          fullDescription: "Servicio especializado en cuidado de barba que incluye recorte, perfilado, limpieza y acabado con productos premium para un look perfecto.",
+          price: "$400",
+          duration: "30 min",
           images: ["https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
         }
       ]
@@ -92,13 +92,13 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
           images: ["https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
         },
         {
-          id: "color-dye",
+          id: "beard",
           icon: <Sparkles className="w-8 h-8" />,
-          title: "Color (Dye)",
-          description: "Professional coloring to cover gray hair or completely change your look",
-          fullDescription: "Complete coloring service with premium products. Includes hair analysis, professional application and post-color nourishing treatment.",
-          price: "$1.750",
-          duration: "60 min",
+          title: "Beard",
+          description: "Professional beard grooming and shaping with impeccable finish",
+          fullDescription: "Specialized beard care service that includes trimming, shaping, cleaning and finishing with premium products for a perfect look.",
+          price: "$400",
+          duration: "30 min",
           images: ["https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
         }
       ]
