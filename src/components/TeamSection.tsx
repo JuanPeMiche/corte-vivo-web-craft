@@ -10,8 +10,8 @@ interface TeamSectionProps {
 const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
   const content = {
     es: {
-      title: "Conoce a nuestro equipo y reserva tu turno con el que quieras!",
-      subtitle: "Profesionales con pasión por el estilo - Haz clic en la foto para reservar tu turno",
+      title: "Nuestro Equipo Profesional",
+      subtitle: "Barberos especializados listos para brindarte el mejor servicio - Selecciona tu profesional",
       clickToBook: "Haz clic para reservar",
       team: [
         {
@@ -33,8 +33,8 @@ const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
       ]
     },
     en: {
-      title: "Meet our team and book your appointment with whoever you want!",
-      subtitle: "Professionals with a passion for style - Click on the photo to book your appointment",
+      title: "Our Professional Team",
+      subtitle: "Specialized barbers ready to provide you with the best service - Select your professional",
       clickToBook: "Click to book",
       team: [
         {
@@ -94,8 +94,6 @@ const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
                   </a>
                 </div>
                 <h3 className="text-xl font-bold">{member.name}</h3>
-                <p className="text-muted-foreground mb-2">{member.specialty}</p>
-                <p className="text-sm text-copper font-semibold">{member.experience}</p>
               </CardContent>
             </Card>
           ))}
