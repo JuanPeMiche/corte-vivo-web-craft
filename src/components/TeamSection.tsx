@@ -26,10 +26,14 @@ const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
         {
           id: "lautaro", 
           name: "Lautaro Sosa",
-          specialty: "Master en Estilo & Diseño",
           image: alexis,
-          experience: "6 años",
           calendlyUrl: "https://calendly.com/lautarojoaquinsosanavarro8/45min?month=2025-10"
+        },
+        {
+          id: "guillermo",
+          name: "Guillermo Olivera",
+          image: guillermo,
+          calendlyUrl: "https://calendly.com/guillermoasbarberia/corte-de-cabello-guillermo-olivera"
         }
       ]
     },
@@ -41,18 +45,20 @@ const TeamSection: React.FC<TeamSectionProps> = ({ language }) => {
         {
           id: "alexis",
           name: "Alex Seijas",
-          specialty: "Modern Cuts Specialist",
           image: lautaro,
-          experience: "8 years",
           calendlyUrl: "https://calendly.com/asbarberiaa2025/45min?month=2025-10"
         },
         {
           id: "lautaro",
           name: "Lautaro Sosa",
-          specialty: "Style & Design Master",
           image: alexis,
-          experience: "6 years",
           calendlyUrl: "https://calendly.com/lautarojoaquinsosanavarro8/45min?month=2025-10"
+        },
+        {
+          id: "guillermo",
+          name: "Guillermo Olivera",
+          image: guillermo,
+          calendlyUrl: "https://calendly.com/guillermoasbarberia/corte-de-cabello-guillermo-olivera"
         }
       ]
     }
