@@ -10,13 +10,15 @@ const BookingSection: React.FC<BookingSectionProps> = ({ language }) => {
       title: "Reserva tu Turno",
       subtitle: "Verifica la disponibilidad de nuestro equipo y agéndate!",
       lautaro: "Reservar con Lautaro",
-      alexis: "Reservar con Alexis"
+      alexis: "Reservar con Alexis",
+      guillermo: "Reservar con Guillermo"
     },
     en: {
       title: "Book Your Appointment",
       subtitle: "Check our team's availability and book your appointment!",
       lautaro: "Book with Lautaro",
-      alexis: "Book with Alexis"
+      alexis: "Book with Alexis",
+      guillermo: "Book with Guillermo"
     }
   };
 
@@ -48,6 +50,15 @@ const BookingSection: React.FC<BookingSectionProps> = ({ language }) => {
               className="block w-full bg-charcoal text-cream py-3 px-6 rounded-lg font-semibold text-lg hover:bg-charcoal/90 transition-colors"
             >
               {text.alexis}
+            </a>
+            
+            <a
+              href="https://calendly.com/guillermoasbarberia/corte-de-cabello-guillermo-olivera"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full bg-charcoal text-cream py-3 px-6 rounded-lg font-semibold text-lg hover:bg-charcoal/90 transition-colors"
+            >
+              {text.guillermo}
             </a>
           </div>
         </div>
