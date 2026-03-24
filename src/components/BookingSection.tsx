@@ -10,13 +10,15 @@ const BookingSection: React.FC<BookingSectionProps> = ({ language }) => {
       title: "Reserva tu Turno",
       subtitle: "Verifica la disponibilidad de nuestro equipo y agéndate!",
       lautaro: "Reservar con Lautaro",
-      alexis: "Reservar con Alexis"
+      alexis: "Reservar con Alexis",
+      guillermo: "Reservar con Guillermo"
     },
     en: {
       title: "Book Your Appointment",
       subtitle: "Check our team's availability and book your appointment!",
       lautaro: "Book with Lautaro",
-      alexis: "Book with Alexis"
+      alexis: "Book with Alexis",
+      guillermo: "Book with Guillermo"
     }
   };
 
