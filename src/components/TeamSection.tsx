@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import alexis from '@/assets/alexis.jpg';
 import lautaro from '@/assets/lautaro.jpg';
+import guillermo from '@/assets/guillermo.jpg';
 
 interface TeamSectionProps {
   language: string;
