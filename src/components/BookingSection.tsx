@@ -51,6 +51,15 @@ const BookingSection: React.FC<BookingSectionProps> = ({ language }) => {
             >
               {text.alexis}
             </a>
+            
+            <a
+              href="https://calendly.com/guillermoasbarberia/corte-de-cabello-guillermo-olivera"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full bg-charcoal text-cream py-3 px-6 rounded-lg font-semibold text-lg hover:bg-charcoal/90 transition-colors"
+            >
+              {text.guillermo}
+            </a>
           </div>
         </div>
       </div>
