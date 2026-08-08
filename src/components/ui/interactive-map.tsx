@@ -19,7 +19,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
   const content = {
     es: {
       title: "Nuestra Ubicación",
-      clickToInteract: "Haz clic para interactuar con el mapa",
+      clickToInteract: "Hacé clic para interactuar con el mapa",
       getDirections: "Cómo llegar",
       viewInMaps: "Ver en Google Maps",
       openInApp: "Abrir en Google Maps"
