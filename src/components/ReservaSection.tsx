@@ -116,7 +116,10 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
 
                         <div className="absolute inset-x-0 bottom-0 p-5">
                           <h3 className="text-xl font-bold text-foreground">{barbero.nombre}</h3>
-                          {dias && <p className="text-sm text-muted-foreground mt-1">{dias}</p>}
+                          <p className="text-sm text-muted-foreground mt-1">
+                            {sucursal.nombre}
+                            {dias && ` · ${dias}`}
+                          </p>
                           <div className="mt-4">
                             {asignacion.calendly ? (
                               <a
