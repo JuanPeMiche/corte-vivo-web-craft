@@ -30,10 +30,10 @@ const StylesSection: React.FC<StylesSectionProps> = ({ language }) => {
   const text = content[language as keyof typeof content];
 
   return (
-    <section id="estilos" className="section-padding">
+    <section id="estilos" className="section-padding bg-background">
       <div className="container-responsive">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             {text.title}
           </h2>
         </div>
