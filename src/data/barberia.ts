@@ -1,3 +1,7 @@
+import alexFoto from '@/assets/alex-seijas.jpg.asset.json';
+import lautaroSosaFoto from '@/assets/lautaro-sosa.jpg.asset.json';
+import guillermoFoto from '@/assets/guillermo-olivera.jpg.asset.json';
+
 export interface Asignacion {
   sucursalId: string;
   dias: string[];
@@ -38,23 +42,9 @@ export const SUCURSALES: Sucursal[] = [
 
 export const BARBEROS: Barbero[] = [
   {
-    id: 'alex-seijas',
-    nombre: 'Alex Seijas',
-    foto: '/barbero-1.jpg',
-    asignaciones: [
-      // { sucursalId: 'lussich', dias: ['lun','mie','vie'], calendly: '' },
-    ],
-  },
-  {
-    id: 'lautaro-sosa',
-    nombre: 'Lautaro Sosa',
-    foto: '/barbero-2.jpg',
-    asignaciones: [],
-  },
-  {
     id: 'guillermo-olivera',
     nombre: 'Guillermo Olivera',
-    foto: '/barbero-3.jpg',
+    foto: guillermoFoto.url,
     asignaciones: [
       {
         sucursalId: 'centro',
@@ -67,13 +57,37 @@ export const BARBEROS: Barbero[] = [
     id: 'lautaro-ibarra',
     nombre: 'Lautaro Ibarra',
     foto: '/barbero-4.jpg',
-    asignaciones: [{ sucursalId: 'centro', dias: [], calendly: '' }],
+    asignaciones: [
+      // Calendly a crear con lautii3110@gmail.com
+      { sucursalId: 'centro', dias: [], calendly: '' },
+    ],
   },
   {
-    id: 'barbero-5',
-    nombre: 'A confirmar',
+    id: 'esteban-valle',
+    nombre: 'Esteban Valle',
     foto: '/barbero-5.jpg',
-    asignaciones: [],
+    asignaciones: [
+      // Calendly a crear con tebanvalle10@gmail.com
+      { sucursalId: 'lussich', dias: [], calendly: '' },
+    ],
+  },
+  {
+    id: 'alex-seijas',
+    nombre: 'Alex Seijas',
+    foto: alexFoto.url,
+    asignaciones: [
+      // PENDIENTE: una sola asignación, según lo que definan
+      // { sucursalId: 'lussich', dias: ['lun','mie','vie'], calendly: 'https://calendly.com/asbarberiaa2025/45min' },
+    ],
+  },
+  {
+    id: 'lautaro-sosa',
+    nombre: 'Lautaro Sosa',
+    foto: lautaroSosaFoto.url,
+    asignaciones: [
+      // PENDIENTE: la asignación complementaria a la de Alex
+      // { sucursalId: 'centro', dias: ['mar','jue','sab'], calendly: 'https://calendly.com/lautarojoaquinsosanavarro8/45min' },
+    ],
   },
 ];
 
@@ -83,13 +97,23 @@ const NOMBRE_DIAS: Record<string, string> = {
   mie: 'miércoles',
   jue: 'jueves',
   vie: 'viernes',
-  sab: 'sábado',
-  dom: 'domingo',
+  sab: 'sábados',
+  dom: 'domingos',
 };
+
+const ORDEN_DIAS = ['lun', 'mar', 'mie', 'jue', 'vie', 'sab'];
 
 export function formatearDias(dias: string[]): string {
   if (!dias || dias.length === 0) return '';
-  const nombres = dias.map((d) => NOMBRE_DIAS[d] ?? d);
+
+  const unicos = Array.from(new Set(dias));
+  const esTodaLaSemana = ORDEN_DIAS.every((d) => unicos.includes(d));
+  if (esTodaLaSemana) return 'Todos los días';
+
+  const ordenados = [...unicos].sort(
+    (a, b) => ORDEN_DIAS.indexOf(a) - ORDEN_DIAS.indexOf(b),
+  );
+  const nombres = ordenados.map((d) => NOMBRE_DIAS[d] ?? d);
   const texto =
     nombres.length === 1
       ? nombres[0]
