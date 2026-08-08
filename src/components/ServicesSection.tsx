@@ -14,8 +14,8 @@ interface Service {
   title: string;
   description: string;
   fullDescription: string;
-  price: string;
-  duration: string;
+  precio?: number;
+  duracion?: number;
   images: string[];
 }
 
@@ -37,8 +37,6 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
           title: "Corte",
           description: "Corte profesional adaptado a tu estilo personal y forma del rostro",
           fullDescription: "Corte profesional que se adapta perfectamente a tu estilo personal y forma del rostro. Utilizamos técnicas modernas para lograr un acabado impecable.",
-          price: "$500",
-          duration: "30 min",
           images: ["https://images.unsplash.com/photo-1622286346003-4526d9101127?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
         },
         {
@@ -47,8 +45,6 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
           title: "Corte + Barba",
           description: "Servicio completo de corte y arreglo de barba con acabado perfecto",
           fullDescription: "Servicio premium que combina corte profesional con cuidado completo de barba. Incluye perfilado, recorte y acabado con productos especializados.",
-          price: "$800",
-          duration: "45 min",
           images: ["https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
         },
         {
@@ -57,8 +53,6 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
           title: "Barba",
           description: "Arreglo y perfilado profesional de barba con acabado impecable",
           fullDescription: "Servicio especializado en cuidado de barba que incluye recorte, perfilado, limpieza y acabado con productos premium para un look perfecto.",
-          price: "$400",
-          duration: "30 min",
           images: ["https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
         }
       ]
@@ -77,8 +71,6 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
           title: "Haircut",
           description: "Professional cut adapted to your personal style and face shape",
           fullDescription: "Professional haircut that perfectly adapts to your personal style and face shape. We use modern techniques to achieve an impeccable finish.",
-          price: "$500",
-          duration: "30 min",
           images: ["https://images.unsplash.com/photo-1622286346003-4526d9101127?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
         },
         {
@@ -87,8 +79,6 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
           title: "Haircut + Beard",
           description: "Complete service of haircut and beard grooming with perfect finish",
           fullDescription: "Premium service that combines professional haircut with complete beard care. Includes trimming, cutting and finishing with specialized products.",
-          price: "$800",
-          duration: "45 min",
           images: ["https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
         },
         {
@@ -97,8 +87,6 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
           title: "Beard",
           description: "Professional beard grooming and shaping with impeccable finish",
           fullDescription: "Specialized beard care service that includes trimming, shaping, cleaning and finishing with premium products for a perfect look.",
-          price: "$400",
-          duration: "30 min",
           images: ["https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"]
         }
       ]
@@ -108,10 +96,10 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
   const text = content[language as keyof typeof content];
 
   return (
-    <section id="servicios" className="section-padding bg-muted/30">
+    <section id="servicios" className="section-padding bg-background">
       <div className="container-responsive">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             {text.title}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -130,6 +118,16 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
                 <CardDescription className="text-muted-foreground">
                   {service.description}
                 </CardDescription>
+                {(service.precio || service.duracion) && (
+                  <div className="mt-3 flex items-center justify-center gap-3 text-sm">
+                    {service.precio ? (
+                      <span className="font-mono text-copper">${service.precio}</span>
+                    ) : null}
+                    {service.duracion ? (
+                      <span className="text-muted-foreground">{service.duracion} min</span>
+                    ) : null}
+                  </div>
+                )}
               </CardHeader>
               <CardContent className="text-center">
                 <Button

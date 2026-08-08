@@ -4,101 +4,79 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Barbería CorteVivo Design System - Urban barbershop aesthetic */
+/* AS Barbería — Design System (carbón / grafito / hueso / bronce / gris) */
 
 @layer base {
   :root {
-    /* Barbershop Color Palette */
-    --background: 0 0% 98%;
-    --foreground: 210 15% 15%;
-    --card: 0 0% 100%;
-    --card-foreground: 210 15% 15%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 15% 15%;
-    
-    /* Black primary */
-    --primary: 0 0% 0%;
-    --primary-foreground: 0 0% 100%;
-    
-    /* Blue accent */
-    --secondary: 221 83% 53%;
-    --secondary-foreground: 0 0% 100%;
-    
-    /* Red accent for highlights */
-    --accent: 0 84% 60%;
-    --accent-foreground: 0 0% 100%;
-    
-    /* Muted grays */
-    --muted: 210 10% 92%;
-    --muted-foreground: 210 10% 45%;
-    
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 210 10% 88%;
-    --input: 210 10% 88%;
-    --ring: 25 85% 45%;
-    
-    /* AS Barbería specific colors */
-    --copper: 0 84% 60%;
-    --copper-light: 0 84% 70%;
-    --blue: 221 83% 53%;
-    --blue-light: 221 83% 63%;
-    --charcoal: 0 0% 0%;
-    --warm-white: 0 0% 100%;
-    
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 0%), hsl(0 0% 10%));
-    --gradient-copper: linear-gradient(135deg, hsl(0 84% 60%), hsl(221 83% 53%));
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 98%));
-    
-    /* Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.2);
-    --shadow-copper: 0 0 30px hsl(0 84% 60% / 0.3);
-    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.1);
-    
-    /* Animations */
+    /* Paleta base */
+    --carbon: 240 8% 7%;        /* #101012 */
+    --grafito: 240 7% 11%;      /* #1A1A1E */
+    --hueso: 40 21% 91%;        /* #EDE9E2 */
+    --bronce: 34 43% 52%;       /* #B98B4E */
+    --bronce-light: 34 43% 62%;
+    --gris: 240 4% 50%;         /* #7C7C84 */
+
+    /* Tokens semánticos */
+    --background: var(--carbon);
+    --foreground: var(--hueso);
+    --card: var(--grafito);
+    --card-foreground: var(--hueso);
+    --popover: var(--grafito);
+    --popover-foreground: var(--hueso);
+
+    --primary: var(--bronce);
+    --primary-foreground: var(--carbon);
+
+    --secondary: var(--grafito);
+    --secondary-foreground: var(--hueso);
+
+    --accent: var(--bronce);
+    --accent-foreground: var(--carbon);
+
+    --muted: var(--grafito);
+    --muted-foreground: var(--gris);
+
+    --destructive: 0 62% 40%;
+    --destructive-foreground: var(--hueso);
+    --border: 240 6% 18%;
+    --input: 240 6% 18%;
+    --ring: var(--bronce);
+
+    /* Alias heredados */
+    --copper: var(--bronce);
+    --copper-light: var(--bronce-light);
+    --charcoal: var(--carbon);
+    --warm-white: var(--hueso);
+
+    /* Gradientes */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--carbon)), hsl(var(--grafito)));
+    --gradient-copper: linear-gradient(135deg, hsl(var(--bronce)), hsl(var(--bronce-light)));
+    --gradient-card: linear-gradient(180deg, hsl(var(--grafito)), hsl(var(--carbon)));
+    --gradient-foto: linear-gradient(to top, hsl(var(--carbon)) 8%, hsl(var(--carbon) / 0.85) 35%, hsl(var(--carbon) / 0) 75%);
+
+    /* Sombras */
+    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
+    --shadow-copper: 0 0 24px hsl(var(--bronce) / 0.2);
+    --shadow-card: 0 2px 12px hsl(0 0% 0% / 0.35);
+
+    /* Animaciones */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    
+
     --radius: 0.75rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 210 10% 45%;
-    --sidebar-primary: 210 15% 15%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 210 10% 85%;
-    --sidebar-accent-foreground: 210 15% 20%;
-    --sidebar-border: 210 10% 88%;
-    --sidebar-ring: 25 85% 45%;
+    --sidebar-background: var(--grafito);
+    --sidebar-foreground: var(--gris);
+    --sidebar-primary: var(--bronce);
+    --sidebar-primary-foreground: var(--carbon);
+    --sidebar-accent: 240 6% 16%;
+    --sidebar-accent-foreground: var(--hueso);
+    --sidebar-border: 240 6% 18%;
+    --sidebar-ring: var(--bronce);
   }
 
   .dark {
-    --background: 210 15% 8%;
-    --foreground: 0 0% 95%;
-    --card: 210 15% 10%;
-    --card-foreground: 0 0% 95%;
-    --popover: 210 15% 10%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 25 85% 45%;
-    --primary-foreground: 210 15% 8%;
-    --secondary: 210 15% 18%;
-    --secondary-foreground: 0 0% 90%;
-    --muted: 210 15% 15%;
-    --muted-foreground: 210 10% 65%;
-    --accent: 25 85% 45%;
-    --accent-foreground: 210 15% 8%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 210 15% 20%;
-    --input: 210 15% 20%;
-    --ring: 25 85% 45%;
-    --sidebar-background: 210 15% 8%;
-    --sidebar-foreground: 210 10% 65%;
-    --sidebar-primary: 25 85% 45%;
-    --sidebar-primary-foreground: 210 15% 8%;
-    --sidebar-accent: 210 15% 18%;
-    --sidebar-accent-foreground: 0 0% 90%;
-    --sidebar-border: 210 15% 20%;
-    --sidebar-ring: 25 85% 45%;
+    --background: var(--carbon);
+    --foreground: var(--hueso);
   }
 }
 
@@ -113,88 +91,96 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
   }
+  :focus-visible {
+    outline: 2px solid hsl(var(--bronce));
+    outline-offset: 2px;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
 }
 
 @layer components {
   .hero-gradient {
     background: var(--gradient-hero);
   }
-  
+
   .copper-gradient {
     background: var(--gradient-copper);
   }
-  
+
   .card-gradient {
     background: var(--gradient-card);
   }
-  
+
+  .foto-gradient {
+    background: var(--gradient-foto);
+  }
+
   .shadow-elegant {
     box-shadow: var(--shadow-elegant);
   }
-  
+
   .shadow-copper {
     box-shadow: var(--shadow-copper);
   }
-  
+
   .shadow-card {
     box-shadow: var(--shadow-card);
   }
-  
+
   .transition-smooth {
     transition: var(--transition-smooth);
   }
-  
+
   .transition-bounce {
     transition: var(--transition-bounce);
   }
-  
+
   .text-copper {
-    color: hsl(0 84% 60%);
+    color: hsl(var(--bronce));
   }
-  
+
   .bg-copper {
-    background-color: hsl(0 84% 60%);
+    background-color: hsl(var(--bronce));
   }
-  
+
   .border-copper {
-    border-color: hsl(0 84% 60%);
+    border-color: hsl(var(--bronce));
   }
-  
-  .text-blue {
-    color: hsl(221 83% 53%);
-  }
-  
-  .bg-blue {
-    background-color: hsl(221 83% 53%);
-  }
-  
-  .border-blue {
-    border-color: hsl(221 83% 53%);
-  }
-  
+
   .hover-scale {
     @apply transition-smooth hover:scale-105;
   }
-  
+
   .nav-link {
     @apply relative text-foreground hover:text-copper transition-smooth;
     @apply after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-copper after:origin-bottom-right after:transition-transform after:duration-300;
     @apply hover:after:scale-x-100 hover:after:origin-bottom-left;
   }
-  
+
   .section-padding {
     @apply py-16 px-4 md:px-8 lg:px-12;
   }
-  
+
   .container-responsive {
     @apply max-w-7xl mx-auto;
   }
-  
+
   .btn-copper {
-    @apply bg-copper hover:bg-copper/90 text-white font-semibold px-6 py-3 rounded-lg transition-smooth shadow-copper hover:shadow-elegant;
+    @apply bg-copper hover:bg-copper/90 text-background font-semibold px-6 py-3 rounded-lg transition-smooth;
   }
-  
+
   .btn-outline-copper {
-    @apply border-2 border-copper text-copper hover:bg-copper hover:text-white font-semibold px-6 py-3 rounded-lg transition-smooth;
+    @apply border-2 border-copper bg-transparent text-copper hover:bg-copper hover:text-background font-semibold px-6 py-3 rounded-lg transition-smooth;
   }
 }

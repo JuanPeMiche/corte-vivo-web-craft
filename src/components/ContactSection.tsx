@@ -1,94 +1,93 @@
 import React from 'react';
 import InteractiveMap from '@/components/ui/interactive-map';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
+import { SUCURSALES } from '@/data/barberia';
 
 interface ContactSectionProps {
   language: string;
 }
 
 const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
-  const content = {
-    es: {
-      title: "Contacto",
-      subtitle: "Visítanos o escríbenos",
-      address: "Florida esquina Rincón 841, Maldonado",
-      phone: "(+598) 92 048 926",
-      email: "asbarberias@gmail.com",
-      hours: "Horarios",
-      weekdays: "Consultar vía mensaje o email",
-      location: "Nuestra Ubicación",
-      directions: "Cómo llegar",
-      googleMaps: "Ver en Google Maps"
-    },
-    en: {
-      title: "Contact",
-      subtitle: "Visit us or write to us",
-      address: "Florida esquina Rincón 841, Maldonado",
-      phone: "(+598) 92 048 926", 
-      email: "asbarberias@gmail.com",
-      hours: "Hours",
-      weekdays: "Contact via message or email",
-      location: "Our Location",
-      directions: "How to get there",
-      googleMaps: "View on Google Maps"
-    }
+  const text = {
+    title: "Contacto",
+    subtitle: "Visitanos o escribinos",
+    phone: "(+598) 92 048 926",
+    email: "asbarberias@gmail.com",
+    hours: "Horarios",
+    weekdays: "Consultá vía mensaje o email",
+    location: "Nuestras Sucursales",
+    googleMaps: "Ver en Google Maps"
   };
 
-  const text = content[language as keyof typeof content];
+  const sucursalesVisibles = SUCURSALES.filter((s) => s.activa && s.direccion);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-sage/5 via-cream/30 to-copper/5" id="contacto">
-      <div className="container mx-auto px-6">
+    <section className="section-padding bg-background" id="contacto">
+      <div className="container-responsive">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-charcoal mb-4">{text.title}</h2>
-          <p className="text-xl text-charcoal/80 max-w-2xl mx-auto">{text.subtitle}</p>
+          <h2 className="text-4xl font-bold text-foreground mb-4">{text.title}</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{text.subtitle}</p>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          {/* Información de contacto centrada */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div className="bg-charcoal/90 backdrop-blur-sm rounded-lg p-6 shadow-sm text-center">
-              <div className="flex items-center justify-center mb-3">
-                <MapPin className="w-6 h-6 text-copper" />
+          {/* Sucursales */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            {sucursalesVisibles.map((s) => (
+              <div key={s.id} className="bg-card border border-border rounded-lg p-6">
+                <h3 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                  <MapPin className="w-5 h-5 text-copper" />
+                  {s.nombre}
+                </h3>
+                <p className="text-muted-foreground text-sm mb-3">{s.direccion}</p>
+                <a
+                  href={s.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.direccion)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-copper text-sm inline-flex items-center gap-1 underline underline-offset-4"
+                >
+                  {text.googleMaps}
+                  <ExternalLink className="w-3 h-3" />
+                </a>
               </div>
-              <h3 className="font-semibold text-cream mb-2">Dirección</h3>
-              <p className="text-cream/80 text-sm">{text.address}</p>
-            </div>
+            ))}
+          </div>
 
-            <div className="bg-charcoal/90 backdrop-blur-sm rounded-lg p-6 shadow-sm text-center">
+          {/* Contacto */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+            <div className="bg-card border border-border rounded-lg p-6 text-center">
               <div className="flex items-center justify-center mb-3">
                 <Phone className="w-6 h-6 text-copper" />
               </div>
-              <h3 className="font-semibold text-cream mb-2">Teléfono</h3>
-              <p className="text-cream/80 text-sm">{text.phone}</p>
+              <h3 className="font-semibold text-foreground mb-2">Teléfono</h3>
+              <p className="text-muted-foreground text-sm">{text.phone}</p>
             </div>
 
-            <div className="bg-charcoal/90 backdrop-blur-sm rounded-lg p-6 shadow-sm text-center">
+            <div className="bg-card border border-border rounded-lg p-6 text-center">
               <div className="flex items-center justify-center mb-3">
                 <Mail className="w-6 h-6 text-copper" />
               </div>
-              <h3 className="font-semibold text-cream mb-2">Email</h3>
-              <p className="text-cream/80 text-sm">{text.email}</p>
+              <h3 className="font-semibold text-foreground mb-2">Email</h3>
+              <p className="text-muted-foreground text-sm break-all">{text.email}</p>
             </div>
 
-            <div className="bg-charcoal/90 backdrop-blur-sm rounded-lg p-6 shadow-sm text-center">
+            <div className="bg-card border border-border rounded-lg p-6 text-center">
               <div className="flex items-center justify-center mb-3">
                 <Clock className="w-6 h-6 text-copper" />
               </div>
-              <h3 className="font-semibold text-cream mb-2">{text.hours}</h3>
-              <p className="text-cream/80 text-sm">{text.weekdays}</p>
+              <h3 className="font-semibold text-foreground mb-2">{text.hours}</h3>
+              <p className="text-muted-foreground text-sm">{text.weekdays}</p>
             </div>
           </div>
 
-          {/* Mapa centrado */}
-          <div className="bg-charcoal/90 backdrop-blur-sm rounded-lg p-6 shadow-sm">
-            <h3 className="text-2xl font-semibold text-cream mb-6 text-center flex items-center justify-center">
+          {/* Mapa */}
+          <div className="bg-card border border-border rounded-lg p-6">
+            <h3 className="text-2xl font-semibold text-foreground mb-6 text-center flex items-center justify-center">
               <MapPin className="w-6 h-6 text-copper mr-2" />
               {text.location}
             </h3>
-            <div className="rounded-lg overflow-hidden mb-6">
-              <InteractiveMap 
-                address={text.address}
+            <div className="rounded-lg overflow-hidden">
+              <InteractiveMap
+                address={SUCURSALES[0].direccion}
                 businessName="AS Barbería"
                 language={language}
               />
