@@ -118,16 +118,6 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
                 <CardDescription className="text-muted-foreground">
                   {service.description}
                 </CardDescription>
-                {(service.precio || service.duracion) && (
-                  <div className="mt-3 flex items-center justify-center gap-3 text-sm">
-                    {service.precio ? (
-                      <span className="font-mono text-copper">${service.precio}</span>
-                    ) : null}
-                    {service.duracion ? (
-                      <span className="text-muted-foreground">{service.duracion} min</span>
-                    ) : null}
-                  </div>
-                )}
               </CardHeader>
               <CardContent className="text-center">
                 <Button
