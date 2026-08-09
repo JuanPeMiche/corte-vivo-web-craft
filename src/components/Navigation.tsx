@@ -37,7 +37,7 @@ const Navigation: React.FC<NavigationProps> = ({ language }) => {
           {/* Logo */}
           <div className="flex items-center group">
             <img
-              src={asLogoAsset.url}
+              src={asLogo}
               alt="AS Barbería"
               className="w-14 h-14 transition-transform duration-300 motion-safe:group-hover:scale-110"
             />
