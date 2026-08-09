@@ -125,8 +125,11 @@ export function formatearDias(dias: string[]): string {
 }
 
 export function barberosDeSucursal(sucursalId: string) {
-  return BARBEROS.map((b) => ({
-    barbero: b,
-    asignacion: b.asignaciones.find((a) => a.sucursalId === sucursalId),
-  })).filter((x) => x.asignacion) as { barbero: Barbero; asignacion: Asignacion }[];
+  return (
+    BARBEROS.map((b) => ({
+      barbero: b,
+      asignacion: b.asignaciones.find((a) => a.sucursalId === sucursalId),
+    })).filter((x) => x.asignacion) as { barbero: Barbero; asignacion: Asignacion }[]
+  ).sort((a, b) => a.barbero.nombre.localeCompare(b.barbero.nombre, 'es'));
 }
+
