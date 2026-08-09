@@ -44,6 +44,30 @@ export const SUCURSALES: Sucursal[] = [
 
 export const BARBEROS: Barbero[] = [
   {
+    id: 'alex-seijas',
+    nombre: 'Alex Seijas',
+    foto: alexFoto.url,
+    asignaciones: [
+      {
+        sucursalId: 'lussich',
+        dias: ['lun', 'mie', 'vie'],
+        calendly: 'https://calendly.com/asbarberiaa2025/45min',
+      },
+    ],
+  },
+  {
+    id: 'lautaro-sosa',
+    nombre: 'Lautaro Sosa',
+    foto: lautaroSosaFoto.url,
+    asignaciones: [
+      {
+        sucursalId: 'centro',
+        dias: ['mar', 'jue', 'sab'],
+        calendly: 'https://calendly.com/lautarojoaquinsosanavarro8/45min',
+      },
+    ],
+  },
+  {
     id: 'guillermo-olivera',
     nombre: 'Guillermo Olivera',
     foto: guillermoFoto.url,
@@ -58,40 +82,17 @@ export const BARBEROS: Barbero[] = [
   {
     id: 'lautaro-ibarra',
     nombre: 'Lautaro Ibarra',
-    foto: '/barbero-4.jpg',
-    asignaciones: [
-      // Calendly a crear con lautii3110@gmail.com
-      { sucursalId: 'centro', dias: [], calendly: '' },
-    ],
+    foto: lautaroIbarraFoto.url,
+    asignaciones: [{ sucursalId: 'centro', dias: [], calendly: '' }],
   },
   {
     id: 'esteban-valle',
     nombre: 'Esteban Valle',
-    foto: '/barbero-5.jpg',
-    asignaciones: [
-      // Calendly a crear con tebanvalle10@gmail.com
-      { sucursalId: 'lussich', dias: [], calendly: '' },
-    ],
-  },
-  {
-    id: 'alex-seijas',
-    nombre: 'Alex Seijas',
-    foto: alexFoto.url,
-    asignaciones: [
-      // PENDIENTE: una sola asignación, según lo que definan
-      // { sucursalId: 'lussich', dias: ['lun','mie','vie'], calendly: 'https://calendly.com/asbarberiaa2025/45min' },
-    ],
-  },
-  {
-    id: 'lautaro-sosa',
-    nombre: 'Lautaro Sosa',
-    foto: lautaroSosaFoto.url,
-    asignaciones: [
-      // PENDIENTE: la asignación complementaria a la de Alex
-      // { sucursalId: 'centro', dias: ['mar','jue','sab'], calendly: 'https://calendly.com/lautarojoaquinsosanavarro8/45min' },
-    ],
+    foto: estebanFoto.url,
+    asignaciones: [{ sucursalId: 'lussich', dias: [], calendly: '' }],
   },
 ];
+
 
 const NOMBRE_DIAS: Record<string, string> = {
   lun: 'lunes',
