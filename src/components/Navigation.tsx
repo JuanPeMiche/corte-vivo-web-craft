@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import asLogoAsset from '@/assets/as-logo.png.asset.json';
+import asLogo from '@/assets/as-logo.png';
 
 interface NavigationProps {
   language: string;
