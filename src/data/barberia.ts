@@ -1,6 +1,8 @@
 import alexFoto from '@/assets/alex-seijas.jpg.asset.json';
 import lautaroSosaFoto from '@/assets/lautaro-sosa.jpg.asset.json';
 import guillermoFoto from '@/assets/guillermo-olivera.jpg.asset.json';
+import estebanFoto from '@/assets/esteban-valle.jpg.asset.json';
+import lautaroIbarraFoto from '@/assets/lautaro-ibarra.jpg.asset.json';
 
 export interface Asignacion {
   sucursalId: string;
