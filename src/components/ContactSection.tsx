@@ -60,7 +60,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
           </div>
 
           {/* Sucursales */}
-          <div className="mb-8">
+          <div className="mb-8" id="sucursales">
             <h3 className="text-2xl font-bold text-foreground mb-6 text-center">{text.location}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {sucursalesVisibles.map((s) => {

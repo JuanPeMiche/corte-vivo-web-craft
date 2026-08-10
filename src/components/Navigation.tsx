@@ -16,7 +16,8 @@ const Navigation: React.FC<NavigationProps> = ({ language }) => {
     { href: "#servicios", label: "Servicios" },
     { href: "#estilos", label: "Estilos" },
     { href: "#reserva", label: "Reserva" },
-    { href: "#contacto", label: "Sucursales" }
+    { href: "#contacto", label: "Contacto" },
+    { href: "#sucursales", label: "Sucursales" }
   ];
 
   const handleNavClick = (href: string) => {
