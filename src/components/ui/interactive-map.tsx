@@ -5,14 +5,21 @@ interface InteractiveMapProps {
   address: string;
   businessName: string;
   language: string;
+  lat: number;
+  lng: number;
+  /** Link corto de Google Maps del local, si existe. */
+  mapsUrl?: string;
   className?: string;
 }
 
-const InteractiveMap: React.FC<InteractiveMapProps> = ({ 
-  address, 
-  businessName, 
+const InteractiveMap: React.FC<InteractiveMapProps> = ({
+  address,
+  businessName,
   language,
-  className = "" 
+  lat,
+  lng,
+  mapsUrl: mapsUrlProp,
+  className = ""
 }) => {
   const [isInteractive, setIsInteractive] = useState(false);
 
@@ -35,17 +42,13 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
   const text = content[language as keyof typeof content] || content.es;
 
-  // Coordenadas aproximadas para Av. 18 de Julio 1234, Montevideo
-  // Puedes cambiar estas coordenadas por las reales de tu negocio
-  const latitude = -34.9032727;
-  const longitude = -56.1947856;
-
-  // URL del mapa embebido de Google Maps
-  const embedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.5234567890123!2d${longitude}!3d${latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x959f81c8a5555555%3A0x1234567890abcdef!2s${encodeURIComponent(address)}!5e0!3m2!1s${language}!2suy!4v${Date.now()}!5m2!1s${language}!2suy`;
+  // Mapa embebido centrado en las coordenadas reales de la sucursal.
+  // Se usa el modo `q=lat,lng` porque no requiere API key ni el token `pb` interno de Google.
+  const embedUrl = `https://maps.google.com/maps?q=${lat},${lng}&z=16&hl=${language}&output=embed`;
 
   // URLs para direcciones y vista en Google Maps
-  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
-  const mapsUrl = `https://maps.google.com/?q=${encodeURIComponent(address)}`;
+  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+  const mapsUrl = mapsUrlProp || `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
 
   const handleMapClick = () => {
     setIsInteractive(true);
@@ -115,7 +118,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
         
         {/* Botón para abrir en la app de Google Maps (móviles) */}
         <a
-          href={`comgooglemaps://?q=${encodeURIComponent(address)}`}
+          href={`comgooglemaps://?q=${lat},${lng}`}
           className="inline-flex items-center gap-2 px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-all duration-200 text-sm font-medium shadow-sm hover:shadow-md md:hidden"
         >
           <MapPin className="w-4 h-4" />

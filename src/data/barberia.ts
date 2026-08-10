@@ -21,6 +21,9 @@ export interface Sucursal {
   id: string;
   nombre: string;
   direccion: string;
+  /** Coordenadas reales, usadas para centrar el mapa embebido. */
+  lat: number;
+  lng: number;
   mapsUrl: string;
   activa: boolean;
 }
@@ -29,14 +32,18 @@ export const SUCURSALES: Sucursal[] = [
   {
     id: 'centro',
     nombre: 'Centro',
-    direccion: 'Florida esq. Rincón 841, Maldonado',
+    direccion: 'Florida esq. Rincón 841, 20000 Maldonado',
+    lat: -34.9083,
+    lng: -54.9556,
     mapsUrl: '',
     activa: true,
   },
   {
     id: 'lussich',
     nombre: 'Lussich',
-    direccion: 'Av. Antonio Lussich, Maldonado',
+    direccion: 'Av. Antonio Lussich, 20000 Maldonado, Departamento de Maldonado',
+    lat: -34.899,
+    lng: -54.9675,
     mapsUrl: 'https://maps.app.goo.gl/Aa7JVjD6jJTkhHkBA?g_st=iw',
     activa: true,
   },

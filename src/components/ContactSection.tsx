@@ -113,9 +113,13 @@ const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
             <div className="rounded-lg overflow-hidden">
               {sucursalSeleccionada && (
                 <InteractiveMap
+                  key={sucursalSeleccionada.id}
                   address={sucursalSeleccionada.direccion}
                   businessName={`AS Barbería - ${sucursalSeleccionada.nombre}`}
                   language={language}
+                  lat={sucursalSeleccionada.lat}
+                  lng={sucursalSeleccionada.lng}
+                  mapsUrl={sucursalSeleccionada.mapsUrl}
                 />
               )}
             </div>
