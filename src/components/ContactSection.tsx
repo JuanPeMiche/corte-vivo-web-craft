@@ -61,7 +61,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
 
           {/* Sucursales */}
           <div className="mb-8">
-            <h3 id="sucursales" className="text-2xl font-bold text-foreground mb-6 text-center scroll-mt-24">{text.location}</h3>
+            <div id="sucursales" className="scroll-mt-24" />
+            <h3 className="text-2xl font-bold text-foreground mb-6 text-center">{text.location}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {sucursalesVisibles.map((s) => {
                 const activa = s.id === sucursalId;
