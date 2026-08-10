@@ -36,7 +36,7 @@ export const SUCURSALES: Sucursal[] = [
   {
     id: 'lussich',
     nombre: 'Lussich',
-    direccion: 'Av. Antonio Lussich y, 20000 Maldonado, Departamento de Maldonado',
+    direccion: 'Av. Antonio Lussich, Maldonado',
     mapsUrl: 'https://maps.app.goo.gl/Aa7JVjD6jJTkhHkBA?g_st=iw',
     activa: true,
   },
