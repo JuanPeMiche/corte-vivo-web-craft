@@ -36,8 +36,8 @@ export const SUCURSALES: Sucursal[] = [
   {
     id: 'lussich',
     nombre: 'Lussich',
-    direccion: '', // PENDIENTE
-    mapsUrl: '',
+    direccion: 'Av. Antonio Lussich y, 20000 Maldonado, Departamento de Maldonado',
+    mapsUrl: 'https://maps.app.goo.gl/Aa7JVjD6jJTkhHkBA?g_st=iw',
     activa: true,
   },
 ];
@@ -83,13 +83,13 @@ export const BARBEROS: Barbero[] = [
     id: 'lautaro-ibarra',
     nombre: 'Lautaro Ibarra',
     foto: lautaroIbarraFoto.url,
-    asignaciones: [{ sucursalId: 'centro', dias: [], calendly: '' }],
+    asignaciones: [{ sucursalId: 'centro', dias: [], calendly: 'https://calendly.com/lautaroiasbarberia/45min' }],
   },
   {
     id: 'esteban-valle',
     nombre: 'Esteban Valle',
     foto: estebanFoto.url,
-    asignaciones: [{ sucursalId: 'lussich', dias: [], calendly: '' }],
+    asignaciones: [{ sucursalId: 'lussich', dias: [], calendly: 'https://calendly.com/estebanvasbarberia/45min' }],
   },
 ];
 
