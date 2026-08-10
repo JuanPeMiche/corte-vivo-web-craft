@@ -24,7 +24,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
   const sucursalSeleccionada = sucursalesVisibles.find((s) => s.id === sucursalId) ?? sucursalesVisibles[0];
 
   return (
-    <section className="section-padding bg-background" id="contacto">
+    <section className="section-padding bg-background scroll-mt-24" id="contacto">
       <div className="container-responsive">
         <div className="text-center mb-10">
           <h2 className="text-4xl font-bold text-foreground mb-4">{text.title}</h2>
@@ -61,6 +61,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
 
           {/* Sucursales */}
           <div className="mb-8">
+            <div id="sucursales" className="scroll-mt-24" />
             <h3 className="text-2xl font-bold text-foreground mb-6 text-center">{text.location}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {sucursalesVisibles.map((s) => {
