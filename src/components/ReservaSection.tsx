@@ -100,6 +100,15 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                 {barberos.map(({ barbero, asignacion }) => {
                   const dias = formatearDias(asignacion.dias);
+                  // Quien rota entre locales usa una sola agenda de Calendly, que no
+                  // distingue sucursal. Se manda la elegida como nota para que quede
+                  // asentada en la reserva y en el mail de confirmación.
+                  const rota = barbero.asignaciones.length > 1;
+                  const urlCalendly = asignacion.calendly
+                    ? `${asignacion.calendly}?location=${encodeURIComponent(sucursal.nombre)}&a1=${encodeURIComponent(
+                        `Sucursal: ${sucursal.nombre} (${sucursal.direccion})`,
+                      )}`
+                    : '';
                   return (
                     <article
                       key={barbero.id}
@@ -120,10 +129,16 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                             {sucursal.nombre}
                             {dias && ` · ${dias}`}
                           </p>
+                          {rota && dias && (
+                            <p className="mt-2 text-xs text-copper">
+                              En {sucursal.nombre} atiende solo {dias.toLowerCase()}. Elegí uno de esos
+                              días en el calendario.
+                            </p>
+                          )}
                           <div className="mt-4">
-                            {asignacion.calendly ? (
+                            {urlCalendly ? (
                               <a
-                                href={asignacion.calendly}
+                                href={urlCalendly}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn-copper inline-block w-full text-center"

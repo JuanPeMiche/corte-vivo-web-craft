@@ -6,9 +6,11 @@ import guillermoFoto from '@/assets/barbero-5.jpg';
 import lautaroIbarraFoto from '@/assets/barbero-1.jpg';
 import estebanFoto from '@/assets/barbero-4.jpg';
 
+export type DiaSemana = 'lun' | 'mar' | 'mie' | 'jue' | 'vie' | 'sab' | 'dom';
+
 export interface Asignacion {
   sucursalId: string;
-  dias: string[];
+  dias: DiaSemana[];
   calendly: string;
 }
 
@@ -50,7 +52,7 @@ export const SUCURSALES: Sucursal[] = [
     lat: -34.899,
     lng: -54.9675,
     mapsUrl: 'https://maps.app.goo.gl/Aa7JVjD6jJTkhHkBA?g_st=iw',
-    horario: 'Lunes a viernes, 10:00 a 19:00',
+    horario: 'Lunes a sábado, 10:00 a 19:00',
     activa: true,
   },
 ];
@@ -63,6 +65,11 @@ export const BARBEROS: Barbero[] = [
     asignaciones: [
       {
         sucursalId: 'lussich',
+        dias: ['mar', 'jue', 'sab'],
+        calendly: 'https://calendly.com/asbarberiaa2025/45min',
+      },
+      {
+        sucursalId: 'centro',
         dias: ['lun', 'mie', 'vie'],
         calendly: 'https://calendly.com/asbarberiaa2025/45min',
       },
@@ -73,6 +80,11 @@ export const BARBEROS: Barbero[] = [
     nombre: 'Lautaro Sosa',
     foto: lautaroSosaFoto,
     asignaciones: [
+      {
+        sucursalId: 'lussich',
+        dias: ['lun', 'mie', 'vie'],
+        calendly: 'https://calendly.com/lautarojoaquinsosanavarro8/45min',
+      },
       {
         sucursalId: 'centro',
         dias: ['mar', 'jue', 'sab'],
@@ -156,5 +168,16 @@ export function barberosDeSucursal(sucursalId: string) {
       asignacion: b.asignaciones.find((a) => a.sucursalId === sucursalId),
     })).filter((x) => x.asignacion) as { barbero: Barbero; asignacion: Asignacion }[]
   ).sort((a, b) => a.barbero.nombre.localeCompare(b.barbero.nombre, 'es'));
+}
+
+/**
+ * Barberos que atienden en una sucursal un día puntual. Un barbero puede rotar
+ * entre locales, así que se filtra por la asignación de ESA sucursal: los días
+ * que cubre en otra no cuentan acá.
+ */
+export function barberosDeSucursalEnDia(sucursalId: string, dia: DiaSemana) {
+  return barberosDeSucursal(sucursalId).filter(({ asignacion }) =>
+    asignacion.dias.includes(dia),
+  );
 }
 
