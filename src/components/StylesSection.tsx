@@ -1,7 +1,10 @@
 import React from 'react';
 import corte1 from '@/assets/corte-1.jpg';
-import corte2 from '@/assets/corte-2.jpg';
-import corte3 from '@/assets/corte-3.jpg';
+import corte2Asset from '@/assets/corte-2.jpg.asset.json';
+import corte3Asset from '@/assets/corte-3.jpg.asset.json';
+
+const corte2 = corte2Asset.url;
+const corte3 = corte3Asset.url;
 
 interface StylesSectionProps {
   language: string;
