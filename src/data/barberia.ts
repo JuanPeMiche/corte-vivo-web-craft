@@ -1,8 +1,10 @@
-import alexFoto from '@/assets/alex-seijas.jpg.asset.json';
-import lautaroSosaFoto from '@/assets/lautaro-sosa.jpg.asset.json';
-import guillermoFoto from '@/assets/guillermo-olivera.jpg.asset.json';
-import estebanFoto from '@/assets/esteban-valle.jpg.asset.json';
-import lautaroIbarraFoto from '@/assets/lautaro-ibarra.jpg.asset.json';
+// Retratos del equipo. Para reasignar una foto a otro barbero alcanza con
+// cambiar el número de archivo en el import correspondiente.
+import alexFoto from '@/assets/barbero-2.jpg';
+import lautaroSosaFoto from '@/assets/barbero-3.jpg';
+import guillermoFoto from '@/assets/barbero-4.jpg';
+import lautaroIbarraFoto from '@/assets/barbero-1.jpg';
+import estebanFoto from '@/assets/barbero-5.jpg';
 
 export interface Asignacion {
   sucursalId: string;
@@ -53,7 +55,7 @@ export const BARBEROS: Barbero[] = [
   {
     id: 'alex-seijas',
     nombre: 'Alex Seijas',
-    foto: alexFoto.url,
+    foto: alexFoto,
     asignaciones: [
       {
         sucursalId: 'lussich',
@@ -65,7 +67,7 @@ export const BARBEROS: Barbero[] = [
   {
     id: 'lautaro-sosa',
     nombre: 'Lautaro Sosa',
-    foto: lautaroSosaFoto.url,
+    foto: lautaroSosaFoto,
     asignaciones: [
       {
         sucursalId: 'centro',
@@ -77,7 +79,7 @@ export const BARBEROS: Barbero[] = [
   {
     id: 'guillermo-olivera',
     nombre: 'Guillermo Olivera',
-    foto: guillermoFoto.url,
+    foto: guillermoFoto,
     asignaciones: [
       {
         sucursalId: 'centro',
@@ -89,13 +91,13 @@ export const BARBEROS: Barbero[] = [
   {
     id: 'lautaro-ibarra',
     nombre: 'Lautaro Ibarra',
-    foto: lautaroIbarraFoto.url,
+    foto: lautaroIbarraFoto,
     asignaciones: [{ sucursalId: 'centro', dias: [], calendly: 'https://calendly.com/lautaroiasbarberia/45min' }],
   },
   {
     id: 'esteban-valle',
     nombre: 'Esteban Valle',
-    foto: estebanFoto.url,
+    foto: estebanFoto,
     asignaciones: [{ sucursalId: 'lussich', dias: [], calendly: 'https://calendly.com/estebanvasbarberia/45min' }],
   },
 ];
