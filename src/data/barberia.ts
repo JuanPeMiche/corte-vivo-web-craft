@@ -27,6 +27,8 @@ export interface Sucursal {
   lat: number;
   lng: number;
   mapsUrl: string;
+  /** Días y franja en que abre el local. Refleja la cobertura de los barberos asignados. */
+  horario: string;
   activa: boolean;
 }
 
@@ -38,6 +40,7 @@ export const SUCURSALES: Sucursal[] = [
     lat: -34.9083,
     lng: -54.9556,
     mapsUrl: '',
+    horario: 'Lunes a sábado, 10:00 a 19:00',
     activa: true,
   },
   {
@@ -47,6 +50,7 @@ export const SUCURSALES: Sucursal[] = [
     lat: -34.899,
     lng: -54.9675,
     mapsUrl: 'https://maps.app.goo.gl/Aa7JVjD6jJTkhHkBA?g_st=iw',
+    horario: 'Lunes a viernes, 10:00 a 19:00',
     activa: true,
   },
 ];
@@ -83,7 +87,7 @@ export const BARBEROS: Barbero[] = [
     asignaciones: [
       {
         sucursalId: 'centro',
-        dias: [],
+        dias: ['lun', 'mar', 'mie', 'jue', 'vie'],
         calendly: 'https://calendly.com/guillermoasbarberia/corte-de-cabello-guillermo-olivera',
       },
     ],
@@ -92,13 +96,25 @@ export const BARBEROS: Barbero[] = [
     id: 'lautaro-ibarra',
     nombre: 'Lautaro Ibarra',
     foto: lautaroIbarraFoto,
-    asignaciones: [{ sucursalId: 'centro', dias: [], calendly: 'https://calendly.com/lautaroiasbarberia/45min' }],
+    asignaciones: [
+      {
+        sucursalId: 'centro',
+        dias: ['lun', 'mar', 'mie', 'jue', 'vie'],
+        calendly: 'https://calendly.com/lautaroiasbarberia/45min',
+      },
+    ],
   },
   {
     id: 'esteban-valle',
     nombre: 'Esteban Valle',
     foto: estebanFoto,
-    asignaciones: [{ sucursalId: 'lussich', dias: [], calendly: 'https://calendly.com/estebanvasbarberia/45min' }],
+    asignaciones: [
+      {
+        sucursalId: 'lussich',
+        dias: ['lun', 'mar', 'mie', 'jue', 'vie'],
+        calendly: 'https://calendly.com/estebanvasbarberia/45min',
+      },
+    ],
   },
 ];
 
