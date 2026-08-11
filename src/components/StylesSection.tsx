@@ -50,7 +50,7 @@ const StylesSection: React.FC<StylesSectionProps> = ({ language }) => {
               <img
                 src={style.image}
                 alt={style.alt}
-                className="w-full h-96 object-cover"
+                className={`w-full h-96 object-cover ${style.position || 'object-center'}`}
               />
             </div>
           ))}
