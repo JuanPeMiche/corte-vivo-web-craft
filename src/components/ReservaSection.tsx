@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
 import { MapPin, Check } from 'lucide-react';
-import { SUCURSALES, barberosDeSucursal, formatearDias } from '@/data/barberia';
+import { SUCURSALES, barberosDeSucursal, formatearDias, type DiaSemana } from '@/data/barberia';
 
 interface ReservaSectionProps {
   language?: string;
 }
 
+/** Días que se ofrecen para filtrar, en orden de semana. */
+const DIAS_SEMANA: { id: DiaSemana; corto: string; largo: string }[] = [
+  { id: 'lun', corto: 'Lun', largo: 'lunes' },
+  { id: 'mar', corto: 'Mar', largo: 'martes' },
+  { id: 'mie', corto: 'Mié', largo: 'miércoles' },
+  { id: 'jue', corto: 'Jue', largo: 'jueves' },
+  { id: 'vie', corto: 'Vie', largo: 'viernes' },
+  { id: 'sab', corto: 'Sáb', largo: 'sábados' },
+];
+
 const ReservaSection: React.FC<ReservaSectionProps> = () => {
   const [sucursalId, setSucursalId] = useState<string | null>(null);
+  const [dia, setDia] = useState<DiaSemana | null>(null);
 
   const sucursal = SUCURSALES.find((s) => s.id === sucursalId) ?? null;
   const barberos = sucursalId ? barberosDeSucursal(sucursalId) : [];
@@ -24,6 +35,7 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
 
   const elegirSucursal = (id: string) => {
     setSucursalId(id);
+    setDia(null); // los días dependen de la sucursal: se elige de nuevo
     setTimeout(() => scrollTo('paso-barbero'), 60);
   };
 
@@ -82,6 +94,7 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                   type="button"
                   onClick={() => {
                     setSucursalId(null);
+                    setDia(null);
                     scrollTo('paso-sucursal');
                   }}
                   className="text-copper underline underline-offset-4 ml-2"
@@ -90,6 +103,52 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                 </button>
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">Elegí tu barbero</h2>
+            </div>
+
+            {/* Filtro por día: deshabilita a quien no atiende ese día en esta sucursal */}
+            <div className="mb-10">
+              <p className="text-center text-sm text-muted-foreground mb-3">
+                ¿Qué día querés venir? <span className="text-xs">(opcional)</span>
+              </p>
+              <div
+                role="group"
+                aria-label="Filtrar barberos por día"
+                className="flex flex-wrap justify-center gap-2"
+              >
+                {DIAS_SEMANA.map((d) => {
+                  const activo = dia === d.id;
+                  const hayAlguien = barberos.some(({ asignacion }) =>
+                    asignacion.dias.includes(d.id),
+                  );
+                  return (
+                    <button
+                      key={d.id}
+                      type="button"
+                      onClick={() => setDia(activo ? null : d.id)}
+                      aria-pressed={activo}
+                      className={`rounded-lg border px-4 py-2 text-sm font-medium transition-smooth ${
+                        activo
+                          ? 'border-copper bg-copper text-white'
+                          : hayAlguien
+                            ? 'border-border text-foreground hover:border-copper/60'
+                            : 'border-border text-muted-foreground/50'
+                      }`}
+                    >
+                      {d.corto}
+                      {!hayAlguien && <span className="sr-only"> (sin barberos este día)</span>}
+                    </button>
+                  );
+                })}
+                {dia && (
+                  <button
+                    type="button"
+                    onClick={() => setDia(null)}
+                    className="rounded-lg px-4 py-2 text-sm text-copper underline underline-offset-4"
+                  >
+                    Ver todos
+                  </button>
+                )}
+              </div>
             </div>
 
             {barberos.length === 0 ? (
@@ -109,10 +168,18 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                         `Sucursal: ${sucursal.nombre} (${sucursal.direccion})`,
                       )}`
                     : '';
+                  // Con un día elegido, quien no atiende ese día en esta sucursal
+                  // no puede reservar: su agenda es de otro local ese día.
+                  const atiendeEseDia = dia ? asignacion.dias.includes(dia) : true;
+                  const nombreDia = DIAS_SEMANA.find((d) => d.id === dia)?.largo ?? '';
                   return (
                     <article
                       key={barbero.id}
-                      className="group relative overflow-hidden rounded-xl border border-border bg-card transition-smooth hover:border-copper"
+                      className={`group relative overflow-hidden rounded-xl border bg-card transition-smooth ${
+                        atiendeEseDia
+                          ? 'border-border hover:border-copper'
+                          : 'border-border opacity-60'
+                      }`}
                     >
                       <div className="relative aspect-[3/4] overflow-hidden">
                         <img
@@ -129,14 +196,22 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                             {sucursal.nombre}
                             {dias && ` · ${dias}`}
                           </p>
-                          {rota && dias && (
+                          {rota && dias && atiendeEseDia && (
                             <p className="mt-2 text-xs text-copper">
                               En {sucursal.nombre} atiende solo {dias.toLowerCase()}. Elegí uno de esos
                               días en el calendario.
                             </p>
                           )}
                           <div className="mt-4">
-                            {urlCalendly ? (
+                            {!atiendeEseDia ? (
+                              <button
+                                type="button"
+                                disabled
+                                className="w-full rounded-lg border border-border bg-secondary px-6 py-3 text-sm font-semibold text-muted-foreground cursor-not-allowed"
+                              >
+                                No atiende los {nombreDia} en {sucursal.nombre}
+                              </button>
+                            ) : urlCalendly ? (
                               <a
                                 href={urlCalendly}
                                 target="_blank"
