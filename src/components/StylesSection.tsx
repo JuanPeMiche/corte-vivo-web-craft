@@ -16,7 +16,7 @@ const StylesSection: React.FC<StylesSectionProps> = ({ language }) => {
       title: "Algunos de Nuestros Cortes Más Populares",
       styles: [
         { id: 1, image: corte1, alt: "Corte popular 1" },
-        { id: 2, image: corte2, alt: "Corte popular 2", position: "object-top" },
+        { id: 2, image: corte2, alt: "Corte popular 2", position: "object-[center_30%]" },
         { id: 3, image: corte3, alt: "Corte popular 3" }
       ]
     },
