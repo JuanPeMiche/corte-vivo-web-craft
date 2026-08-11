@@ -16,7 +16,7 @@ const StylesSection: React.FC<StylesSectionProps> = ({ language }) => {
       title: "Algunos de Nuestros Cortes Más Populares",
       styles: [
         { id: 1, image: corte1, alt: "Corte popular 1" },
-        { id: 2, image: corte2, alt: "Corte popular 2" },
+        { id: 2, image: corte2, alt: "Corte popular 2", position: "object-top" },
         { id: 3, image: corte3, alt: "Corte popular 3" }
       ]
     },
@@ -24,7 +24,7 @@ const StylesSection: React.FC<StylesSectionProps> = ({ language }) => {
       title: "Some of Our Most Popular Cuts",
       styles: [
         { id: 1, image: corte1, alt: "Popular cut 1" },
-        { id: 2, image: corte2, alt: "Popular cut 2" },
+        { id: 2, image: corte2, alt: "Popular cut 2", position: "object-top" },
         { id: 3, image: corte3, alt: "Popular cut 3" }
       ]
     }
@@ -50,7 +50,7 @@ const StylesSection: React.FC<StylesSectionProps> = ({ language }) => {
               <img
                 src={style.image}
                 alt={style.alt}
-                className="w-full h-96 object-cover"
+                className={`w-full h-96 object-cover ${style.position || 'object-center'}`}
               />
             </div>
           ))}
