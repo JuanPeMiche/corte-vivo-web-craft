@@ -2,9 +2,9 @@
 // cambiar el número de archivo en el import correspondiente.
 import alexFoto from '@/assets/barbero-2.jpg';
 import lautaroSosaFoto from '@/assets/barbero-3.jpg';
-import guillermoFoto from '@/assets/barbero-4.jpg';
+import guillermoFoto from '@/assets/barbero-5.jpg';
 import lautaroIbarraFoto from '@/assets/barbero-1.jpg';
-import estebanFoto from '@/assets/barbero-5.jpg';
+import estebanFoto from '@/assets/barbero-4.jpg';
 
 export interface Asignacion {
   sucursalId: string;
