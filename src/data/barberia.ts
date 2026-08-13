@@ -8,10 +8,26 @@ import estebanFoto from '@/assets/barbero-4.jpg';
 
 export type DiaSemana = 'lun' | 'mar' | 'mie' | 'jue' | 'vie' | 'sab' | 'dom';
 
+export type ProveedorReserva = 'calendly' | 'calcom' | 'ninguno';
+
 export interface Asignacion {
   sucursalId: string;
   dias: DiaSemana[];
+  /** Agenda de esta sucursal. Puede ser de Calendly o de Cal.com según el barbero. */
   calendly: string;
+}
+
+/** Deduce el proveedor de la agenda a partir del dominio de la URL. */
+export function proveedorDeReserva(url: string): ProveedorReserva {
+  if (!url) return 'ninguno';
+  try {
+    const host = new URL(url).hostname.toLowerCase();
+    if (host === 'calendly.com' || host.endsWith('.calendly.com')) return 'calendly';
+    if (host === 'cal.com' || host.endsWith('.cal.com')) return 'calcom';
+  } catch {
+    return 'ninguno';
+  }
+  return 'ninguno';
 }
 
 export interface Barbero {
@@ -66,12 +82,12 @@ export const BARBEROS: Barbero[] = [
       {
         sucursalId: 'lussich',
         dias: ['mar', 'jue', 'sab'],
-        calendly: 'https://calendly.com/asbarberiaa2025/45min',
+        calendly: 'https://cal.com/alex-seijas/corte-lussich',
       },
       {
         sucursalId: 'centro',
         dias: ['lun', 'mie', 'vie'],
-        calendly: 'https://calendly.com/asbarberiaa2025/45min',
+        calendly: 'https://cal.com/alex-seijas/corte-centro',
       },
     ],
   },
@@ -83,12 +99,12 @@ export const BARBEROS: Barbero[] = [
       {
         sucursalId: 'lussich',
         dias: ['lun', 'mie', 'vie'],
-        calendly: 'https://calendly.com/lautarojoaquinsosanavarro8/45min',
+        calendly: 'https://cal.com/lautaro-sosa/corte-lussich',
       },
       {
         sucursalId: 'centro',
         dias: ['mar', 'jue', 'sab'],
-        calendly: 'https://calendly.com/lautarojoaquinsosanavarro8/45min',
+        calendly: 'https://cal.com/lautaro-sosa/corte-centro',
       },
     ],
   },
