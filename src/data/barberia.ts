@@ -164,7 +164,7 @@ export function formatearDias(dias: string[]): string {
 
   const unicos = Array.from(new Set(dias));
   const esTodaLaSemana = ORDEN_DIAS.every((d) => unicos.includes(d));
-  if (esTodaLaSemana) return 'Todos los días';
+  if (esTodaLaSemana) return 'De lunes a sábados';
 
   const ordenados = [...unicos].sort(
     (a, b) => ORDEN_DIAS.indexOf(a) - ORDEN_DIAS.indexOf(b),
