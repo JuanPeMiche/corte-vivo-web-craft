@@ -115,7 +115,7 @@ export const BARBEROS: Barbero[] = [
     asignaciones: [
       {
         sucursalId: 'centro',
-        dias: ['lun', 'mar', 'mie', 'jue', 'vie'],
+        dias: ['lun', 'mar', 'mie', 'jue', 'vie', 'sab'],
         calendly: 'https://calendly.com/guillermoasbarberia/corte-de-cabello-guillermo-olivera',
       },
     ],
@@ -127,7 +127,7 @@ export const BARBEROS: Barbero[] = [
     asignaciones: [
       {
         sucursalId: 'centro',
-        dias: ['lun', 'mar', 'mie', 'jue', 'vie'],
+        dias: ['lun', 'mar', 'mie', 'jue', 'vie', 'sab'],
         calendly: 'https://calendly.com/lautaroiasbarberia/45min',
       },
     ],
@@ -139,7 +139,7 @@ export const BARBEROS: Barbero[] = [
     asignaciones: [
       {
         sucursalId: 'lussich',
-        dias: ['lun', 'mar', 'mie', 'jue', 'vie'],
+        dias: ['lun', 'mar', 'mie', 'jue', 'vie', 'sab'],
         calendly: 'https://calendly.com/estebanvasbarberia/45min',
       },
     ],
