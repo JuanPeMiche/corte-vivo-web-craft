@@ -99,12 +99,12 @@ export const BARBEROS: Barbero[] = [
       {
         sucursalId: 'lussich',
         dias: ['lun', 'mie', 'vie'],
-        calendly: 'https://cal.com/lautaro-sosa/corte-lussich',
+        calendly: 'https://cal.com/lautaro-sosa-asbarberia/corte-lussich',
       },
       {
         sucursalId: 'centro',
         dias: ['mar', 'jue', 'sab'],
-        calendly: 'https://cal.com/lautaro-sosa/corte-centro',
+        calendly: 'https://cal.com/lautaro-sosa-asbarberia/corte-centro',
       },
     ],
   },
