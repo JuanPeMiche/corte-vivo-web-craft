@@ -128,7 +128,7 @@ export const BARBEROS: Barbero[] = [
       {
         sucursalId: 'centro',
         dias: ['lun', 'mar', 'mie', 'jue', 'vie', 'sab'],
-        calendly: 'https://calendly.com/lautaroiasbarberia/45min',
+        calendly: 'https://calendly.com/lautaroiasbarberia/60min',
       },
     ],
   },
@@ -140,7 +140,7 @@ export const BARBEROS: Barbero[] = [
       {
         sucursalId: 'lussich',
         dias: ['lun', 'mar', 'mie', 'jue', 'vie', 'sab'],
-        calendly: 'https://calendly.com/estebanvasbarberia/45min',
+        calendly: 'https://calendly.com/estebanvasbarberia/60min',
       },
     ],
   },
