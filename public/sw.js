@@ -1,89 +1,75 @@
-const CACHE_NAME = 'as-barberia-v1.0.0';
+const CACHE_VERSION = 'v2';
+const CACHE_NAME = `as-barberia-${CACHE_VERSION}`;
 const OFFLINE_URL = '/offline.html';
 
-// Recursos para cachear
-const urlsToCache = [
-  '/',
-  '/offline.html',
-  '/assets/icon-192.png',
-  '/assets/icon-512.png',
-  // Agregar otros recursos críticos aquí
-];
+// Recursos base. El resto se cachea on-demand, siempre del mismo origen.
+const urlsToCache = ['/', OFFLINE_URL];
 
-// Instalación del service worker
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        console.log('Service Worker: Cache abierto');
-        return cache.addAll(urlsToCache);
-      })
-      .then(() => {
-        return self.skipWaiting();
-      })
+    caches
+      .open(CACHE_NAME)
+      .then((cache) => cache.addAll(urlsToCache))
+      .then(() => self.skipWaiting())
   );
 });
 
-// Activación del service worker
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME) {
-            console.log('Service Worker: Eliminando cache antiguo', cacheName);
-            return caches.delete(cacheName);
-          }
+    caches
+      .keys()
+      .then((nombres) =>
+        Promise.all(
+          nombres.filter((n) => n !== CACHE_NAME).map((n) => caches.delete(n))
+        )
+      )
+      .then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', (event) => {
+  const { request } = event;
+
+  if (request.method !== 'GET') return;
+
+  // Solo se toca lo servido desde este dominio. Las agendas de Calendly y
+  // Cal.com viajan sin interceptar: su disponibilidad cambia a cada minuto y
+  // servirla desde cache mostraría turnos que ya no existen.
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return;
+
+  // El HTML va a la red primero, así un deploy nuevo se ve sin esperar.
+  if (request.mode === 'navigate' || request.destination === 'document') {
+    event.respondWith(
+      fetch(request)
+        .then((respuesta) => {
+          const copia = respuesta.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, copia));
+          return respuesta;
         })
-      );
-    }).then(() => {
-      return self.clients.claim();
+        .catch(() =>
+          caches.match(request).then((cacheada) => cacheada || caches.match(OFFLINE_URL))
+        )
+    );
+    return;
+  }
+
+  // Los assets llevan hash en el nombre: si están en cache, sirven.
+  event.respondWith(
+    caches.match(request).then((cacheada) => {
+      if (cacheada) return cacheada;
+      return fetch(request).then((respuesta) => {
+        if (!respuesta || respuesta.status !== 200 || respuesta.type !== 'basic') {
+          return respuesta;
+        }
+        const copia = respuesta.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(request, copia));
+        return respuesta;
+      });
     })
   );
 });
 
-// Interceptar peticiones de red
-self.addEventListener('fetch', (event) => {
-  // Solo manejar requests GET
-  if (event.request.method !== 'GET') return;
-
-  event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Si encontramos el recurso en cache, lo devolvemos
-        if (response) {
-          return response;
-        }
-
-        // Si no está en cache, lo buscamos en la red
-        return fetch(event.request)
-          .then((response) => {
-            // Verificar que la respuesta es válida
-            if (!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
-
-            // Clonar la respuesta para almacenarla en cache
-            const responseToCache = response.clone();
-
-            caches.open(CACHE_NAME)
-              .then((cache) => {
-                cache.put(event.request, responseToCache);
-              });
-
-            return response;
-          })
-          .catch(() => {
-            // Si falla la red, mostrar página offline para navegación
-            if (event.request.destination === 'document') {
-              return caches.match(OFFLINE_URL);
-            }
-          });
-      })
-  );
-});
-
-// Manejar mensajes del cliente
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();

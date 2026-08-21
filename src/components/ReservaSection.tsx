@@ -172,18 +172,8 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                 {barberos.map(({ barbero, asignacion }) => {
                   const dias = formatearDias(asignacion.dias);
                   const rota = barbero.asignaciones.length > 1;
-                  const proveedor = proveedorDeReserva(asignacion.calendly);
-                  // En Calendly la agenda es única para las dos sucursales, así que se
-                  // manda la elegida como nota para que quede asentada en la reserva.
-                  // Cal.com ya tiene un evento por sucursal: no hace falta aclararlo.
-                  const urlReserva =
-                    proveedor === 'calendly'
-                      ? `${asignacion.calendly}?location=${encodeURIComponent(
-                          sucursal.nombre,
-                        )}&a1=${encodeURIComponent(
-                          `Sucursal: ${sucursal.nombre} (${sucursal.direccion})`,
-                        )}`
-                      : asignacion.calendly;
+                  const proveedor = proveedorDeReserva(asignacion.reservaUrl);
+                  const urlReserva = asignacion.reservaUrl;
                   // Con un día elegido, quien no atiende ese día en esta sucursal
                   // no puede reservar: su agenda es de otro local ese día.
                   const atiendeEseDia = dia ? asignacion.dias.includes(dia) : true;
@@ -273,7 +263,7 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
               const elegido = barberos.find(
                 ({ barbero, asignacion }) =>
                   barbero.id === barberoAbierto &&
-                  proveedorDeReserva(asignacion.calendly) === 'calcom' &&
+                  proveedorDeReserva(asignacion.reservaUrl) === 'calcom' &&
                   (dia ? asignacion.dias.includes(dia) : true),
               );
               if (!elegido) return null;
@@ -294,7 +284,7 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                   </div>
                   <div className="overflow-hidden rounded-xl border border-border bg-card">
                     <iframe
-                      src={`${asignacion.calendly}?embed=true`}
+                      src={`${asignacion.reservaUrl}?embed=true`}
                       title={`Reservar con ${barbero.nombre} en ${sucursal.nombre}`}
                       loading="lazy"
                       className="w-full h-[700px] border-0"
@@ -303,7 +293,7 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                   <p className="mt-3 text-center text-sm text-muted-foreground">
                     ¿No carga el calendario?{' '}
                     <a
-                      href={asignacion.calendly}
+                      href={asignacion.reservaUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-copper underline underline-offset-4"

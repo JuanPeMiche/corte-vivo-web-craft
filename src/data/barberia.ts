@@ -14,7 +14,7 @@ export interface Asignacion {
   sucursalId: string;
   dias: DiaSemana[];
   /** Agenda de esta sucursal. Puede ser de Calendly o de Cal.com según el barbero. */
-  calendly: string;
+  reservaUrl: string;
 }
 
 /** Deduce el proveedor de la agenda a partir del dominio de la URL. */
@@ -82,12 +82,12 @@ export const BARBEROS: Barbero[] = [
       {
         sucursalId: 'lussich',
         dias: ['mar', 'jue', 'sab'],
-        calendly: 'https://cal.com/alex-seijas-asbarberia/corte-lussich',
+        reservaUrl: 'https://cal.com/alex-seijas-asbarberia/corte-lussich',
       },
       {
         sucursalId: 'centro',
         dias: ['lun', 'mie', 'vie'],
-        calendly: 'https://cal.com/alex-seijas-asbarberia/corte-centro',
+        reservaUrl: 'https://cal.com/alex-seijas-asbarberia/corte-centro',
       },
     ],
   },
@@ -99,12 +99,12 @@ export const BARBEROS: Barbero[] = [
       {
         sucursalId: 'lussich',
         dias: ['lun', 'mie', 'vie'],
-        calendly: 'https://cal.com/lautaro-sosa-asbarberia/corte-lussich',
+        reservaUrl: 'https://cal.com/lautaro-sosa-asbarberia/corte-lussich',
       },
       {
         sucursalId: 'centro',
         dias: ['mar', 'jue', 'sab'],
-        calendly: 'https://cal.com/lautaro-sosa-asbarberia/corte-centro',
+        reservaUrl: 'https://cal.com/lautaro-sosa-asbarberia/corte-centro',
       },
     ],
   },
@@ -116,7 +116,7 @@ export const BARBEROS: Barbero[] = [
       {
         sucursalId: 'centro',
         dias: ['lun', 'mar', 'mie', 'jue', 'vie', 'sab'],
-        calendly: 'https://calendly.com/guillermoasbarberia/corte-de-cabello-guillermo-olivera',
+        reservaUrl: 'https://calendly.com/guillermoasbarberia/corte-de-cabello-guillermo-olivera',
       },
     ],
   },
@@ -128,7 +128,7 @@ export const BARBEROS: Barbero[] = [
       {
         sucursalId: 'centro',
         dias: ['lun', 'mar', 'mie', 'jue', 'vie', 'sab'],
-        calendly: 'https://calendly.com/lautaroiasbarberia/60min',
+        reservaUrl: 'https://calendly.com/lautaroiasbarberia/60min',
       },
     ],
   },
@@ -140,7 +140,7 @@ export const BARBEROS: Barbero[] = [
       {
         sucursalId: 'lussich',
         dias: ['lun', 'mar', 'mie', 'jue', 'vie', 'sab'],
-        calendly: 'https://calendly.com/estebanvasbarberia/60min',
+        reservaUrl: 'https://calendly.com/estebanvasbarberia/60min',
       },
     ],
   },
