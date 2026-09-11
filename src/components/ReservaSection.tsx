@@ -4,7 +4,6 @@ import {
   SUCURSALES,
   barberosDeSucursal,
   formatearDias,
-  proveedorDeReserva,
   type DiaSemana,
 } from '@/data/barberia';
 
@@ -25,8 +24,6 @@ const DIAS_SEMANA: { id: DiaSemana; corto: string; largo: string }[] = [
 const ReservaSection: React.FC<ReservaSectionProps> = () => {
   const [sucursalId, setSucursalId] = useState<string | null>(null);
   const [dia, setDia] = useState<DiaSemana | null>(null);
-  /** Barbero cuyo calendario de Cal.com está abierto debajo de la grilla. */
-  const [barberoAbierto, setBarberoAbierto] = useState<string | null>(null);
 
   const sucursal = SUCURSALES.find((s) => s.id === sucursalId) ?? null;
   const barberos = sucursalId ? barberosDeSucursal(sucursalId) : [];
@@ -44,7 +41,6 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
   const elegirSucursal = (id: string) => {
     setSucursalId(id);
     setDia(null); // los días dependen de la sucursal: se elige de nuevo
-    setBarberoAbierto(null);
     setTimeout(() => scrollTo('paso-barbero'), 60);
   };
 
@@ -133,10 +129,7 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                     <button
                       key={d.id}
                       type="button"
-                      onClick={() => {
-                        setDia(activo ? null : d.id);
-                        setBarberoAbierto(null);
-                      }}
+                      onClick={() => setDia(activo ? null : d.id)}
                       aria-pressed={activo}
                       className={`rounded-lg border px-4 py-2 text-sm font-medium transition-smooth ${
                         activo
@@ -171,9 +164,8 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                 {barberos.map(({ barbero, asignacion }) => {
                   const dias = formatearDias(asignacion.dias);
-                  const rota = barbero.asignaciones.length > 1;
-                  const proveedor = proveedorDeReserva(asignacion.reservaUrl);
                   const urlReserva = asignacion.reservaUrl;
+                  const rota = barbero.asignaciones.length > 1;
                   // Con un día elegido, quien no atiende ese día en esta sucursal
                   // no puede reservar: su agenda es de otro local ese día.
                   const atiendeEseDia = dia ? asignacion.dias.includes(dia) : true;
@@ -202,7 +194,7 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                             {sucursal.nombre}
                             {dias && ` · ${dias}`}
                           </p>
-                          {rota && dias && atiendeEseDia && proveedor === 'calendly' && (
+                          {rota && dias && atiendeEseDia && (
                             <p className="mt-2 text-xs text-copper">
                               En {sucursal.nombre} atiende solo {dias.toLowerCase()}. Elegí uno de esos
                               días en el calendario.
@@ -216,20 +208,6 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                                 className="w-full rounded-lg border border-border bg-secondary px-6 py-3 text-sm font-semibold text-muted-foreground cursor-not-allowed"
                               >
                                 No atiende los {nombreDia} en {sucursal.nombre}
-                              </button>
-                            ) : proveedor === 'calcom' ? (
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  const abrir = barberoAbierto === barbero.id ? null : barbero.id;
-                                  setBarberoAbierto(abrir);
-                                  if (abrir) setTimeout(() => scrollTo('calendario'), 60);
-                                }}
-                                aria-expanded={barberoAbierto === barbero.id}
-                                aria-controls="calendario"
-                                className="btn-copper inline-block w-full text-center"
-                              >
-                                {barberoAbierto === barbero.id ? 'Cerrar calendario' : 'Reservar turno'}
                               </button>
                             ) : urlReserva ? (
                               <a
@@ -258,53 +236,6 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
               </div>
             )}
 
-            {/* Calendario embebido de Cal.com para el barbero elegido */}
-            {(() => {
-              const elegido = barberos.find(
-                ({ barbero, asignacion }) =>
-                  barbero.id === barberoAbierto &&
-                  proveedorDeReserva(asignacion.reservaUrl) === 'calcom' &&
-                  (dia ? asignacion.dias.includes(dia) : true),
-              );
-              if (!elegido) return null;
-              const { barbero, asignacion } = elegido;
-              return (
-                <div id="calendario" className="mt-12 scroll-mt-24 max-w-4xl mx-auto">
-                  <div className="flex items-center justify-between gap-4 mb-4">
-                    <h3 className="text-xl font-bold text-foreground">
-                      Reservar con {barbero.nombre} · {sucursal.nombre}
-                    </h3>
-                    <button
-                      type="button"
-                      onClick={() => setBarberoAbierto(null)}
-                      className="text-sm text-copper underline underline-offset-4 shrink-0"
-                    >
-                      Cerrar
-                    </button>
-                  </div>
-                  <div className="overflow-hidden rounded-xl border border-border bg-card">
-                    <iframe
-                      src={`${asignacion.reservaUrl}?embed=true`}
-                      title={`Reservar con ${barbero.nombre} en ${sucursal.nombre}`}
-                      loading="lazy"
-                      className="w-full h-[700px] border-0"
-                    />
-                  </div>
-                  <p className="mt-3 text-center text-sm text-muted-foreground">
-                    ¿No carga el calendario?{' '}
-                    <a
-                      href={asignacion.reservaUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-copper underline underline-offset-4"
-                    >
-                      Abrilo en una pestaña nueva
-                    </a>
-                    .
-                  </p>
-                </div>
-              );
-            })()}
           </div>
         )}
       </div>

@@ -8,26 +8,11 @@ import estebanFoto from '@/assets/barbero-4.jpg';
 
 export type DiaSemana = 'lun' | 'mar' | 'mie' | 'jue' | 'vie' | 'sab' | 'dom';
 
-export type ProveedorReserva = 'calendly' | 'calcom' | 'ninguno';
-
 export interface Asignacion {
   sucursalId: string;
   dias: DiaSemana[];
-  /** Agenda de esta sucursal. Puede ser de Calendly o de Cal.com según el barbero. */
+  /** Agenda de Calendly de esta sucursal. Vacío si todavía no tiene. */
   reservaUrl: string;
-}
-
-/** Deduce el proveedor de la agenda a partir del dominio de la URL. */
-export function proveedorDeReserva(url: string): ProveedorReserva {
-  if (!url) return 'ninguno';
-  try {
-    const host = new URL(url).hostname.toLowerCase();
-    if (host === 'calendly.com' || host.endsWith('.calendly.com')) return 'calendly';
-    if (host === 'cal.com' || host.endsWith('.cal.com')) return 'calcom';
-  } catch {
-    return 'ninguno';
-  }
-  return 'ninguno';
 }
 
 export interface Barbero {
@@ -82,12 +67,12 @@ export const BARBEROS: Barbero[] = [
       {
         sucursalId: 'lussich',
         dias: ['mar', 'jue', 'sab'],
-        reservaUrl: 'https://cal.com/alex-seijas-asbarberia/corte-lussich',
+        reservaUrl: 'https://calendly.com/asbarberiaa2025/alex-seijas-lussich',
       },
       {
         sucursalId: 'centro',
         dias: ['lun', 'mie', 'vie'],
-        reservaUrl: 'https://cal.com/alex-seijas-asbarberia/corte-centro',
+        reservaUrl: 'https://calendly.com/asbarberiaa2025/45min',
       },
     ],
   },
@@ -99,12 +84,12 @@ export const BARBEROS: Barbero[] = [
       {
         sucursalId: 'lussich',
         dias: ['lun', 'mie', 'vie'],
-        reservaUrl: 'https://cal.com/lautaro-sosa-asbarberia/corte-lussich',
+        reservaUrl: 'https://calendly.com/lautarosasbarberia/30min?background_color=1a1a1a&text_color=ffffff&primary_color=ffa900',
       },
       {
         sucursalId: 'centro',
         dias: ['mar', 'jue', 'sab'],
-        reservaUrl: 'https://cal.com/lautaro-sosa-asbarberia/corte-centro',
+        reservaUrl: 'https://calendly.com/lautarosasbarberia/new-meeting?background_color=1a1a1a&text_color=ffffff&primary_color=ff6500',
       },
     ],
   },
