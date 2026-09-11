@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, Check } from 'lucide-react';
+import CalendlyInline from '@/components/ui/calendly-inline';
 import {
   SUCURSALES,
   barberosDeSucursal,
@@ -24,6 +25,8 @@ const DIAS_SEMANA: { id: DiaSemana; corto: string; largo: string }[] = [
 const ReservaSection: React.FC<ReservaSectionProps> = () => {
   const [sucursalId, setSucursalId] = useState<string | null>(null);
   const [dia, setDia] = useState<DiaSemana | null>(null);
+  /** Barbero cuyo calendario está abierto debajo de la grilla. */
+  const [barberoAbierto, setBarberoAbierto] = useState<string | null>(null);
 
   const sucursal = SUCURSALES.find((s) => s.id === sucursalId) ?? null;
   const barberos = sucursalId ? barberosDeSucursal(sucursalId) : [];
@@ -41,6 +44,7 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
   const elegirSucursal = (id: string) => {
     setSucursalId(id);
     setDia(null); // los días dependen de la sucursal: se elige de nuevo
+    setBarberoAbierto(null);
     setTimeout(() => scrollTo('paso-barbero'), 60);
   };
 
@@ -100,6 +104,7 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                   onClick={() => {
                     setSucursalId(null);
                     setDia(null);
+                    setBarberoAbierto(null);
                     scrollTo('paso-sucursal');
                   }}
                   className="text-copper underline underline-offset-4 ml-2"
@@ -129,7 +134,10 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                     <button
                       key={d.id}
                       type="button"
-                      onClick={() => setDia(activo ? null : d.id)}
+                      onClick={() => {
+                        setDia(activo ? null : d.id);
+                        setBarberoAbierto(null);
+                      }}
                       aria-pressed={activo}
                       className={`rounded-lg border px-4 py-2 text-sm font-medium transition-smooth ${
                         activo
@@ -147,7 +155,10 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                 {dia && (
                   <button
                     type="button"
-                    onClick={() => setDia(null)}
+                    onClick={() => {
+                      setDia(null);
+                      setBarberoAbierto(null);
+                    }}
                     className="rounded-lg px-4 py-2 text-sm text-copper underline underline-offset-4"
                   >
                     Ver todos
@@ -210,14 +221,19 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                                 No atiende los {nombreDia} en {sucursal.nombre}
                               </button>
                             ) : urlReserva ? (
-                              <a
-                                href={urlReserva}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  const abrir = barberoAbierto === barbero.id ? null : barbero.id;
+                                  setBarberoAbierto(abrir);
+                                  if (abrir) setTimeout(() => scrollTo('calendario'), 60);
+                                }}
+                                aria-expanded={barberoAbierto === barbero.id}
+                                aria-controls="calendario"
                                 className="btn-copper inline-block w-full text-center"
                               >
-                                Reservar turno
-                              </a>
+                                {barberoAbierto === barbero.id ? 'Cerrar calendario' : 'Reservar turno'}
+                              </button>
                             ) : (
                               <button
                                 type="button"
@@ -235,6 +251,39 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                 })}
               </div>
             )}
+
+            {/* Calendario embebido del barbero elegido */}
+            {(() => {
+              const elegido = barberos.find(
+                ({ barbero, asignacion }) =>
+                  barbero.id === barberoAbierto &&
+                  asignacion.reservaUrl &&
+                  (dia ? asignacion.dias.includes(dia) : true),
+              );
+              if (!elegido) return null;
+              const { barbero, asignacion } = elegido;
+              return (
+                <div id="calendario" className="mt-12 scroll-mt-24 max-w-4xl mx-auto">
+                  <div className="flex items-center justify-between gap-4 mb-4">
+                    <h3 className="text-xl font-bold text-foreground">
+                      Reservar con {barbero.nombre} · {sucursal.nombre}
+                    </h3>
+                    <button
+                      type="button"
+                      onClick={() => setBarberoAbierto(null)}
+                      className="text-sm text-copper underline underline-offset-4 shrink-0"
+                    >
+                      Cerrar
+                    </button>
+                  </div>
+                  <CalendlyInline
+                    key={`${barbero.id}-${asignacion.sucursalId}`}
+                    url={asignacion.reservaUrl}
+                    nombre={barbero.nombre}
+                  />
+                </div>
+              );
+            })()}
 
           </div>
         )}
