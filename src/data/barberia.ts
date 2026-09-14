@@ -84,12 +84,12 @@ export const BARBEROS: Barbero[] = [
       {
         sucursalId: 'lussich',
         dias: ['lun', 'mie', 'vie'],
-        reservaUrl: 'https://calendly.com/lautarosasbarberia/30min?background_color=1a1a1a&text_color=ffffff&primary_color=ffa900',
+        reservaUrl: 'https://calendly.com/lautarosasbarberia/lautaro--lussich?background_color=1a1a1a&text_color=ffffff&primary_color=ffa900',
       },
       {
         sucursalId: 'centro',
         dias: ['mar', 'jue', 'sab'],
-        reservaUrl: 'https://calendly.com/lautarosasbarberia/new-meeting?background_color=1a1a1a&text_color=ffffff&primary_color=ff6500',
+        reservaUrl: 'https://calendly.com/lautarosasbarberia/lautaro-centro?background_color=1a1a1a&text_color=ffffff&primary_color=ff6500',
       },
     ],
   },
