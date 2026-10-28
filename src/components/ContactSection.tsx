@@ -11,7 +11,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
   const text = {
     title: "Contacto",
     subtitle: "Visitanos o escribinos",
-    phone: "(+598) 92 048 926",
+    phone: "+598 98 484 110",
     email: "asbarberias@gmail.com",
     hours: "Horarios",
     weekdays: "Consultá vía mensaje o email",
