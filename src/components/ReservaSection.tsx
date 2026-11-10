@@ -78,8 +78,8 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                   }`}
                 >
                   {s.foto ? (
-                    // Foto cuadrada encuadrada en el local, con los datos encima
-                    <div className="relative aspect-square overflow-hidden">
+                    // Foto vertical (3:4) encuadrada en el local, con los datos encima
+                    <div className="relative aspect-[3/4] overflow-hidden">
                       <img
                         src={s.foto}
                         alt={`Fachada de AS Barbería, sucursal ${s.nombre}`}

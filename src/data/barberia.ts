@@ -33,7 +33,7 @@ export interface Sucursal {
   lat: number;
   lng: number;
   mapsUrl: string;
-  /** Foto de la fachada, cuadrada y encuadrada en el local. */
+  /** Foto de la fachada, vertical 3:4 y encuadrada en el local. */
   foto?: string;
   /** Días y franja en que abre el local. Refleja la cobertura de los barberos asignados. */
   horario: string;
