@@ -3,8 +3,11 @@
 import alexFoto from '@/assets/barbero-2.jpg';
 import lautaroSosaFoto from '@/assets/barbero-3.jpg';
 import guillermoFoto from '@/assets/barbero-5.jpg';
-import lautaroIbarraFoto from '@/assets/barbero-1.jpg';
 import estebanFoto from '@/assets/barbero-4.jpg';
+
+// Fachadas de cada local, para que el cliente lo reconozca al llegar.
+import centroFoto from '@/assets/sucursal-centro.jpg';
+import lussichFoto from '@/assets/sucursal-lussich.jpg';
 
 export type DiaSemana = 'lun' | 'mar' | 'mie' | 'jue' | 'vie' | 'sab' | 'dom';
 
@@ -30,6 +33,8 @@ export interface Sucursal {
   lat: number;
   lng: number;
   mapsUrl: string;
+  /** Foto de la fachada, vertical 3:4. */
+  foto?: string;
   /** Días y franja en que abre el local. Refleja la cobertura de los barberos asignados. */
   horario: string;
   activa: boolean;
@@ -43,6 +48,7 @@ export const SUCURSALES: Sucursal[] = [
     lat: -34.9083,
     lng: -54.9556,
     mapsUrl: '',
+    foto: centroFoto,
     horario: 'Lunes a sábado, 10:00 a 19:00',
     activa: true,
   },
@@ -53,6 +59,7 @@ export const SUCURSALES: Sucursal[] = [
     lat: -34.899,
     lng: -54.9675,
     mapsUrl: 'https://maps.app.goo.gl/Aa7JVjD6jJTkhHkBA?g_st=iw',
+    foto: lussichFoto,
     horario: 'Lunes a sábado, 10:00 a 19:00',
     activa: true,
   },
@@ -102,18 +109,6 @@ export const BARBEROS: Barbero[] = [
         sucursalId: 'centro',
         dias: ['lun', 'mar', 'mie', 'jue', 'vie', 'sab'],
         reservaUrl: 'https://calendly.com/guillermoasbarberia/corte-de-cabello-guillermo-olivera',
-      },
-    ],
-  },
-  {
-    id: 'lautaro-ibarra',
-    nombre: 'Lautaro Ibarra',
-    foto: lautaroIbarraFoto,
-    asignaciones: [
-      {
-        sucursalId: 'centro',
-        dias: ['lun', 'mar', 'mie', 'jue', 'vie', 'sab'],
-        reservaUrl: 'https://calendly.com/lautaroiasbarberia/60min',
       },
     ],
   },
