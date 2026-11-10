@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Check } from 'lucide-react';
+import { MapPin, Check, ArrowLeftRight, ArrowRight, CalendarDays } from 'lucide-react';
 import CalendlyInline from '@/components/ui/calendly-inline';
 import {
   SUCURSALES,
@@ -13,14 +13,16 @@ interface ReservaSectionProps {
 }
 
 /** Días que se ofrecen para filtrar, en orden de semana. */
-const DIAS_SEMANA: { id: DiaSemana; corto: string; largo: string }[] = [
-  { id: 'lun', corto: 'Lun', largo: 'lunes' },
-  { id: 'mar', corto: 'Mar', largo: 'martes' },
-  { id: 'mie', corto: 'Mié', largo: 'miércoles' },
-  { id: 'jue', corto: 'Jue', largo: 'jueves' },
-  { id: 'vie', corto: 'Vie', largo: 'viernes' },
-  { id: 'sab', corto: 'Sáb', largo: 'sábados' },
+const DIAS_SEMANA: { id: DiaSemana; ini: string; corto: string; largo: string }[] = [
+  { id: 'lun', ini: 'Lu', corto: 'Lun', largo: 'lunes' },
+  { id: 'mar', ini: 'Ma', corto: 'Mar', largo: 'martes' },
+  { id: 'mie', ini: 'Mi', corto: 'Mié', largo: 'miércoles' },
+  { id: 'jue', ini: 'Ju', corto: 'Jue', largo: 'jueves' },
+  { id: 'vie', ini: 'Vi', corto: 'Vie', largo: 'viernes' },
+  { id: 'sab', ini: 'Sá', corto: 'Sáb', largo: 'sábados' },
 ];
+
+const nombreSucursal = (id: string) => SUCURSALES.find((s) => s.id === id)?.nombre ?? id;
 
 const ReservaSection: React.FC<ReservaSectionProps> = () => {
   const [sucursalId, setSucursalId] = useState<string | null>(null);
@@ -46,6 +48,14 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
     setDia(null); // los días dependen de la sucursal: se elige de nuevo
     setBarberoAbierto(null);
     setTimeout(() => scrollTo('paso-barbero'), 60);
+  };
+
+  /** Lleva al cliente a la agenda del mismo barbero en la otra sucursal. */
+  const irAOtraSucursal = (id: string, barberoId: string, d: DiaSemana | null) => {
+    setSucursalId(id);
+    setDia(d);
+    setBarberoAbierto(barberoId);
+    setTimeout(() => scrollTo('calendario'), 120);
   };
 
   return (
@@ -192,18 +202,22 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                 {barberos.map(({ barbero, asignacion }) => {
                   const dias = formatearDias(asignacion.dias);
                   const urlReserva = asignacion.reservaUrl;
-                  const rota = barbero.asignaciones.length > 1;
+                  // Agendas del mismo barbero en otras sucursales (los que rotan).
+                  const otras = barbero.asignaciones.filter(
+                    (a) => a.sucursalId !== asignacion.sucursalId,
+                  );
                   // Con un día elegido, quien no atiende ese día en esta sucursal
-                  // no puede reservar: su agenda es de otro local ese día.
+                  // no puede reservar acá: ese día su agenda es de otro local.
                   const atiendeEseDia = dia ? asignacion.dias.includes(dia) : true;
                   const nombreDia = DIAS_SEMANA.find((d) => d.id === dia)?.largo ?? '';
+                  const otraEseDia = dia
+                    ? otras.find((a) => a.dias.includes(dia) && a.reservaUrl)
+                    : undefined;
                   return (
                     <article
                       key={barbero.id}
                       className={`group relative overflow-hidden rounded-xl border bg-card transition-smooth ${
-                        atiendeEseDia
-                          ? 'border-border hover:border-copper'
-                          : 'border-border opacity-60'
+                        atiendeEseDia ? 'border-border hover:border-copper' : 'border-border'
                       }`}
                     >
                       <div className="relative aspect-[3/4] overflow-hidden">
@@ -211,24 +225,61 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
                           src={barbero.foto}
                           alt={`${barbero.nombre}, barbero en AS Barbería`}
                           loading="lazy"
-                          className="h-full w-full object-cover object-top transition-transform duration-500 motion-safe:group-hover:scale-[1.03]"
+                          className={`h-full w-full object-cover object-top transition-transform duration-500 motion-safe:group-hover:scale-[1.03] ${
+                            atiendeEseDia ? '' : 'opacity-40 grayscale'
+                          }`}
                         />
                         <div className="absolute inset-0 foto-gradient" aria-hidden="true"></div>
 
                         <div className="absolute inset-x-0 bottom-0 p-5">
                           <h3 className="text-xl font-bold text-foreground">{barbero.nombre}</h3>
-                          <p className="text-sm text-muted-foreground mt-1">
-                            {sucursal.nombre}
-                            {dias && ` · ${dias}`}
+
+                          {/* Días que atiende en ESTA sucursal, visibles de un vistazo */}
+                          <p className="mt-2 mb-1.5 text-xs text-muted-foreground">
+                            Días en {sucursal.nombre}
                           </p>
-                          {rota && dias && atiendeEseDia && (
-                            <p className="mt-2 text-xs text-copper">
-                              En {sucursal.nombre} atiende solo {dias.toLowerCase()}. Elegí uno de esos
-                              días en el calendario.
-                            </p>
-                          )}
+                          <p className="sr-only">{dias}</p>
+                          <div className="flex gap-1" aria-hidden="true">
+                            {DIAS_SEMANA.map((d) => {
+                              const atiende = asignacion.dias.includes(d.id);
+                              return (
+                                <span
+                                  key={d.id}
+                                  className={`flex-1 rounded-md border py-1 text-center text-xs font-semibold ${
+                                    atiende
+                                      ? 'border-copper bg-copper text-white'
+                                      : 'border-muted-foreground/30 bg-background/70 text-muted-foreground/70 line-through'
+                                  } ${dia === d.id ? 'ring-2 ring-foreground' : ''}`}
+                                >
+                                  {d.ini}
+                                </span>
+                              );
+                            })}
+                          </div>
+
+                          {otras.map((o) => (
+                            <button
+                              key={o.sucursalId}
+                              type="button"
+                              onClick={() => irAOtraSucursal(o.sucursalId, barbero.id, null)}
+                              className="mt-2 inline-flex items-start gap-1.5 text-left text-xs text-copper underline-offset-4 hover:underline"
+                            >
+                              <ArrowLeftRight className="w-3.5 h-3.5 mt-px shrink-0" />
+                              {formatearDias(o.dias)}: en {nombreSucursal(o.sucursalId)}
+                            </button>
+                          ))}
+
                           <div className="mt-4">
-                            {!atiendeEseDia ? (
+                            {!atiendeEseDia && otraEseDia ? (
+                              <button
+                                type="button"
+                                onClick={() => irAOtraSucursal(otraEseDia.sucursalId, barbero.id, dia)}
+                                className="w-full inline-flex items-center justify-center gap-2 rounded-lg border border-copper px-4 py-3 text-sm font-semibold text-copper transition-smooth hover:bg-copper hover:text-white"
+                              >
+                                Los {nombreDia} está en {nombreSucursal(otraEseDia.sucursalId)}
+                                <ArrowRight className="w-4 h-4" />
+                              </button>
+                            ) : !atiendeEseDia ? (
                               <button
                                 type="button"
                                 disabled
@@ -278,8 +329,42 @@ const ReservaSection: React.FC<ReservaSectionProps> = () => {
               );
               if (!elegido) return null;
               const { barbero, asignacion } = elegido;
+              const otras = barbero.asignaciones.filter(
+                (a) => a.sucursalId !== asignacion.sucursalId && a.reservaUrl,
+              );
               return (
                 <div id="calendario" className="mt-12 scroll-mt-24 max-w-4xl mx-auto">
+                  {/* Aviso para los que rotan: qué días están acá y dónde el resto */}
+                  {otras.length > 0 && (
+                    <div className="mb-6 flex flex-col gap-4 rounded-xl border border-copper/60 bg-copper/10 p-4 md:flex-row md:items-center md:justify-between md:p-5">
+                      <div className="flex gap-3">
+                        <CalendarDays className="w-6 h-6 text-copper shrink-0" />
+                        <p className="text-foreground">
+                          <strong>
+                            {barbero.nombre} atiende en {sucursal.nombre} solo los{' '}
+                            {formatearDias(asignacion.dias).toLowerCase()}.
+                          </strong>{' '}
+                          {otras.map((o) => (
+                            <span key={o.sucursalId} className="text-muted-foreground">
+                              Los {formatearDias(o.dias).toLowerCase()} está en{' '}
+                              {nombreSucursal(o.sucursalId)}.{' '}
+                            </span>
+                          ))}
+                        </p>
+                      </div>
+                      {otras.map((o) => (
+                        <button
+                          key={o.sucursalId}
+                          type="button"
+                          onClick={() => irAOtraSucursal(o.sucursalId, barbero.id, null)}
+                          className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-copper px-4 py-2 text-sm font-semibold text-copper transition-smooth hover:bg-copper hover:text-white"
+                        >
+                          Ver agenda en {nombreSucursal(o.sucursalId)}
+                          <ArrowRight className="w-4 h-4" />
+                        </button>
+                      ))}
+                    </div>
+                  )}
                   <div className="flex items-center justify-between gap-4 mb-4">
                     <h3 className="text-xl font-bold text-foreground">
                       Reservar con {barbero.nombre} · {sucursal.nombre}
